@@ -1,11 +1,11 @@
 #include <iostream>
-#include "GetRandomNumber.h"
+#include "RandomNumber.h"
 
 int main()
 {
 	for (int i = 0; i < 25; i++)
 	{
-		double num = GetRandomNumber::FromNormalDistribution(-25, 25);
+		double num = RandomNumber::FromNormalDistribution(-25, 25);
 		std::cout << num << std::endl;
 	}
 

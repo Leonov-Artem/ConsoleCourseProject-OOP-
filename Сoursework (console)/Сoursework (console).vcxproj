@@ -115,11 +115,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="GetRandomNumber.h" />
+    <ClInclude Include="RandomNumber.h" />
     <ClInclude Include="Point.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GetRandomNumber.cpp" />
+    <ClCompile Include="RandomNumber.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Point.cpp" />
   </ItemGroup>

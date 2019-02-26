@@ -1,8 +1,8 @@
-#include "GetRandomNumber.h"
+#include "RandomNumber.h"
 #include <random>
 #include <cmath>
 
-double GetRandomNumber::FromNormalDistribution(double min, double max)
+double RandomNumber::FromNormalDistribution(double min, double max)
 {
 	// выч. параметры норм. расп.
 	double mean = (max + min) / 2;					// мат. ожидание 

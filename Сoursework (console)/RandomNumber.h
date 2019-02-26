@@ -2,10 +2,10 @@
 #ifndef GETRANDOMNUMBER_H
 #define GETRANDOMNUMBER_H
 
-class GetRandomNumber
+class RandomNumber
 {
 public:
-	GetRandomNumber();
+	RandomNumber();
 	static double FromNormalDistribution(double min, double max);
 };
 
