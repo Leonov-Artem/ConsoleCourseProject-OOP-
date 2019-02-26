@@ -2,16 +2,20 @@
 #ifndef POINT_H
 #define POINT_H
 
-template <class T>
 class Point
 {
 	public:
 		Point();
-		Point(T x, T y);
-		T GetX();
-		T GetY();
+		Point(double x, double y);
+
+		double GetX();
+		double GetY();
+
+		static Point GeneratePoint(double x_min, double x_max, double y_min, double y_max);
+
+		void Print();
 	private:
-		T x, y;
+		double x, y;
 };
 
 #endif // !POINT_H

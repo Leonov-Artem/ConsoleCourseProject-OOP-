@@ -1,10 +1,21 @@
 #include "Point.h"
+#include "RandomNumber.h"
+#include <iostream>
 
-template <typename T>
-Point<T>::Point(T x, T y) { this->x = x; this->y = y; }
+Point::Point(double x, double y) { this->x = x; this->y = y; }
 
-template <typename T>
-T Point<T>::GetX() { return x; }
+double Point::GetX() { return x; }
+double Point::GetY() { return y; }
 
-template <typename T>
-T Point<T>::GetY() { return y; }
+Point Point::GeneratePoint(double x_min, double x_max, double y_min, double y_max)
+{
+	double x = RandomNumber::FromNormalDistribution(x_min, x_max);
+	double y = RandomNumber::FromNormalDistribution(y_min, y_max);
+	return Point(x, y);
+}
+
+void Point::Print()
+{
+	std::cout << "x = " << x << std::endl;
+	std::cout << "y = " << y << std::endl;
+}
