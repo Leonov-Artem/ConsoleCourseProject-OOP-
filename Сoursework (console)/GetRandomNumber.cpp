@@ -1,5 +1,4 @@
 #include "GetRandomNumber.h"
-#include <iostream>
 #include <random>
 #include <cmath>
 
