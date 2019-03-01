@@ -1,17 +1,17 @@
 #include <iostream>
 #include "RandomNumber.h"
 #include "Point.h"
+#include "Vector.h"
+
+using std::cout;
+using std::endl;
 
 int main()
 {
-	/*for (int i = 0; i < 25; i++)
-	{
-		double num = RandomNumber::FromNormalDistribution(-25, 25);
-		std::cout << num << std::endl;
-	}
-*/
-	Point p =  Point::GeneratePoint(1, 2, 3, 4);
-	p.Print();
+	Vector v1(2, -4);
+	Vector v2(17, 8);
+	
+	cout << Vector::AngleBetween(v1, v2) << endl;
 
 	system("pause");
 	return 0;
