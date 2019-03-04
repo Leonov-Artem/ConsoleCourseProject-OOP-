@@ -8,10 +8,8 @@ using std::endl;
 
 int main()
 {
-	Vector v1(2, -4);
-	Vector v2(17, 8);
-	
-	cout << Vector::AngleBetween(v1, v2) << endl;
+	Vector<int> v1(1, 2);
+	Vector<int> v2(3, 4);
 
 	system("pause");
 	return 0;

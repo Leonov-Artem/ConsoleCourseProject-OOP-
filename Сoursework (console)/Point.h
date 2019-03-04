@@ -2,20 +2,31 @@
 #ifndef POINT_H
 #define POINT_H
 
+template <typename T>
 class Point
 {
 private:
-	double x, y;
+	T x, y;
+
 public:
-		Point();
-		Point(double x, double y);
+	Point() { x = 0; y = 0; }
+		Point(T x, T y) { this->x = x; this->y = y; }
 
-		double GetX();
-		double GetY();
+		T GetX() { return x; }
+		T GetY() { return y; }
 
-		static Point GeneratePoint(double x_min, double x_max, double y_min, double y_max);
+		static Point GeneratePoint(double x_min, double x_max, double y_min, double y_max)
+		{
+			double x = RandomNumber::FromNormalDistribution(x_min, x_max);
+			double y = RandomNumber::FromNormalDistribution(y_min, y_max);
+			return Point(x, y);
+		}
 
-		void Print();
+		void Print()
+		{
+			std::cout << "x = " << x << std::endl;
+			std::cout << "y = " << y << std::endl;
+		}
 };
 
 #endif // !POINT_H
