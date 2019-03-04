@@ -4,7 +4,9 @@
 
 class Point
 {
-	public:
+private:
+	double x, y;
+public:
 		Point();
 		Point(double x, double y);
 
@@ -14,8 +16,6 @@ class Point
 		static Point GeneratePoint(double x_min, double x_max, double y_min, double y_max);
 
 		void Print();
-	private:
-		double x, y;
 };
 
 #endif // !POINT_H
