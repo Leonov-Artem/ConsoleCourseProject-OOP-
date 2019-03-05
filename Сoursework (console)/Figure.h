@@ -5,6 +5,7 @@ class Figure
 {
 private:
 	Point<double> b, d, m, e;
+	void CoordinateDetermination(Point<double> point1, Point<double> point2);
 
 public:
 	Figure();

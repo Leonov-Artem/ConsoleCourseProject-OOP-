@@ -9,6 +9,12 @@ Figure::Figure()
 }
 Figure::Figure(Point<double> point1, Point<double> point2)
 {
+	// определение всех координат фигуры по двум введенным координатам
+	CoordinateDetermination(point1, point2);
+}
+
+void Figure::CoordinateDetermination(Point<double> point1, Point<double> point2)
+{
 	if (point1.GetX() < point2.GetX())
 		// значит point1 - это точка b
 		b = point1;
@@ -21,15 +27,15 @@ Figure::Figure(Point<double> point1, Point<double> point2)
 	if (b.GetY() > point2.GetY())
 	{
 		e = point2;
-		d = Point<double>( e.GetX(), e.GetY() + 2 * (b.GetY() - e.GetY()) );
+		d = Point<double>(e.GetX(), e.GetY() + 2 * (b.GetY() - e.GetY()));
 	}
 	else
 	{
 		d = point2;
-		e = Point<double>( d.GetX(), d.GetY() - 2 * (d.GetY() - b.GetY()) );
+		e = Point<double>(d.GetX(), d.GetY() - 2 * (d.GetY() - b.GetY()));
 	}
 
-	m = Point<double>( e.GetX() + b.GetY() - e.GetY(), b.GetY() );
+	m = Point<double>(e.GetX() + b.GetY() - e.GetY(), b.GetY());
 }
 
 Point<double> Figure::GetB() { return this->b; }
