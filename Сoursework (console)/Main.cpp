@@ -1,4 +1,5 @@
 #include <iostream>
+#include <Windows.h>
 #include "RandomNumber.h"
 #include "Point.h"
 #include "Vector.h"
@@ -8,8 +9,11 @@ using std::endl;
 
 int main()
 {
-	Vector<int> v1(1, 2);
-	Vector<int> v2(3, 4);
+	setlocale(LC_CTYPE, "");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	cout << "Координаты первой точки:";
 
 	system("pause");
 	return 0;

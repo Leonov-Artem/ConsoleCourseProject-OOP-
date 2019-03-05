@@ -9,11 +9,11 @@ private:
 	T x, y;
 
 public:
-	Point() { x = 0; y = 0; }
-		Point(T x, T y) { this->x = x; this->y = y; }
+		Point()				{ x = 0; y = 0; }
+		Point(T x, T y)		{ this->x = x; this->y = y; }
 
-		T GetX() { return x; }
-		T GetY() { return y; }
+		T GetX()			{ return x; }
+		T GetY()			{ return y; }
 
 		static Point GeneratePoint(double x_min, double x_max, double y_min, double y_max)
 		{
