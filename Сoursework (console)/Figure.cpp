@@ -1,5 +1,6 @@
 #include "Figure.h"
 #include "Triangle.h"
+#include "Vector.h"
 #include "Semicircle.h"
 #include <cmath>
 
@@ -42,6 +43,16 @@ Point<double> Figure::GetB() { return this->b; }
 Point<double> Figure::GetD() { return this->d; }
 Point<double> Figure::GetM() { return this->m; }
 Point<double> Figure::GetE() { return this->e; }
+
+bool Figure::Hit(Point<double> x)
+{
+	Vector<double> BD(b, d), BX(b, x), BE(b, e);
+
+	double angle_between_BD_and_BE = Vector<double>::AngleBetween(BD, BE);
+	double angle_between_BX_and_BE = Vector<double>::AngleBetween(BX, BE);
+	
+	return (bool)(angle_between_BX_and_BE <= angle_between_BD_and_BE && (x.GetY() <= d.GetY() && x.GetY() >= e.GetY() ) );
+}
 
 double Figure::ExactAreaValue()
 {
