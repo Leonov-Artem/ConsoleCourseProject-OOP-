@@ -16,6 +16,8 @@ public:
 	Point<double> GetM();
 	Point<double> GetE();
 
+	bool Hit(Point<double> point);
+
 	double ExactAreaValue();
 	double MonteCarloAlgorithm();
 };

@@ -49,3 +49,12 @@ double Figure::ExactAreaValue()
 	double area_semicircle = Semicircle(d, m, e).Area();
 	return area_semicircle + area_triangle;
 }
+//double Figure::MonteCarloAlgorithm()
+//{
+//	int amount_points = 10e6;
+//
+//	for (int i = 0; i < amount_points; i++)
+//	{
+//
+//	}
+//}
