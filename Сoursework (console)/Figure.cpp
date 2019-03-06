@@ -46,6 +46,6 @@ Point<double> Figure::GetE() { return this->e; }
 double Figure::ExactAreaValue()
 {
 	double area_triangle = Triangle(b, d, e).Area();
-	double area_semicircle = Semicircle(d, e).Area();
+	double area_semicircle = Semicircle(d, m, e).Area();
 	return area_semicircle + area_triangle;
 }

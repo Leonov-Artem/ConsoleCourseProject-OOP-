@@ -4,7 +4,7 @@
 
 Semicircle::Semicircle(Point<double> d, Point<double> m, Point<double> e)
 {
-	double r = m.GetX() - d.GetX();
+	r = m.GetX() - d.GetX();
 
 	this->d = d;
 	this->m = m;

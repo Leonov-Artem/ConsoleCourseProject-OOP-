@@ -21,6 +21,7 @@ int main()
 
 	Figure figure(p1, p2);
 	double area = figure.ExactAreaValue();
+	cout << "area = " << area << endl;
 
 	system("pause");
 	return 0;
