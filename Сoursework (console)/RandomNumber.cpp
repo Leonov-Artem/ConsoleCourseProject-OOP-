@@ -16,5 +16,5 @@ double RandomNumber::FromNormalDistribution(double min, double max)
 	std::normal_distribution<double> normalDistribution(mean, standard_deviation);
 
 	// возврат числа, округленного до двух знаков после запятой
-	return round( normalDistribution(randomGen) * 100 ) / 100 ;
+	return normalDistribution(randomGen);
 }
