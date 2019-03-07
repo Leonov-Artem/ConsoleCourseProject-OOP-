@@ -20,6 +20,7 @@ public:
 	}
 
 	double Length()										{ return round(sqrt(x * x + y * y) * 100) / 100; }
+	static double Pseudoscalar(Vector v1, Vector v2)	{ return v1.x*v2.y - v2.x*v1.y; }
 	static double Dot(Vector v1, Vector v2)				{ return v1.x * v2.x + v1.y * v2.y; }
 	static double AngleBetween(Vector v1, Vector v2)
 	{

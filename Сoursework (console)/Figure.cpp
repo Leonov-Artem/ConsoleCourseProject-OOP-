@@ -1,6 +1,7 @@
 #include "Figure.h"
 #include "Triangle.h"
 #include "Vector.h"
+#include "Rectangle.h"
 #include "Semicircle.h"
 #include <cmath>
 
@@ -50,8 +51,9 @@ bool Figure::Hit(Point<double> x)
 
 	double angle_between_BD_and_BE = Vector<double>::AngleBetween(BD, BE);
 	double angle_between_BX_and_BE = Vector<double>::AngleBetween(BX, BE);
-	
-	return (bool)(angle_between_BX_and_BE <= angle_between_BD_and_BE && (x.GetY() <= d.GetY() && x.GetY() >= e.GetY() ) );
+	double pseudo = Vector<double>::Pseudoscalar(BE, BX);
+
+	return (bool)(angle_between_BX_and_BE <= angle_between_BD_and_BE && pseudo > 0 );
 }
 
 double Figure::ExactAreaValue()
@@ -60,12 +62,28 @@ double Figure::ExactAreaValue()
 	double area_semicircle = Semicircle(d, m, e).Area();
 	return area_semicircle + area_triangle;
 }
-//double Figure::MonteCarloAlgorithm()
-//{
-//	int amount_points = 10e6;
-//
-//	for (int i = 0; i < amount_points; i++)
-//	{
-//
-//	}
-//}
+double Figure::MonteCarloAlgorithm()
+{
+	Rectangle rectangle(b, d, m, e); // определяем прямоугольник, в котором находится фигура 
+	double rectangle_area = rectangle.Area();
+
+	double amount_points = 1e5; // количество новых точек 
+	int number_points_inside_figure = 0; // счетчик кол-ва точек внутри фигуры 
+
+	double x_min = rectangle.GetA().GetX();
+	double x_max = rectangle.GetD().GetX();
+	double y_min = rectangle.GetA().GetY();
+	double y_max = rectangle.GetB().GetY();
+
+	for (int i = 0; i < amount_points; i++)
+	{
+		// генерируем новую точку 
+		Point<double> new_point = Point<double>::GeneratePoint(x_min, x_max, y_min, y_max);
+
+		// проверяем точку на попадание внутрь 
+		if (Hit(new_point))
+			number_points_inside_figure++;
+	}
+
+	return rectangle_area * number_points_inside_figure / amount_points;
+}
