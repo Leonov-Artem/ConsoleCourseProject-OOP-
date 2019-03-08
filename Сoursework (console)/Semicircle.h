@@ -4,7 +4,7 @@
 class Semicircle
 {
 private:
-	Point<double> d, m, e;
+	Point<double> d, m, e, centre;
 	double r;
 
 public:
@@ -13,6 +13,7 @@ public:
 	Point<double> GetD();
 	Point<double> GetM();
 	Point<double> GetE();
+	Point<double> Centre();
 
 	double R();
 
