@@ -18,3 +18,10 @@ Point<double> Semicircle::GetE()	{ return e; }
 Point<double> Semicircle::Centre()	{ return centre; }
 double Semicircle::R()				{ return r; }
 double Semicircle::Area()			{ return 0.5 * M_PI * r * r; }
+
+double Semicircle::CircleEquation(Point<double> point)
+{
+	double x = point.GetX() - centre.GetX();
+	double y = point.GetY() - centre.GetY();
+	return pow(x, 2) + pow(y, 2);
+}
