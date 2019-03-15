@@ -48,12 +48,13 @@ Point<double> Figure::GetE() { return this->e; }
 bool Figure::Hit(Point<double> x)
 {
 	Vector<double> BD(b, d), BX(b, x), BE(b, e);
+	Semicircle semicircle(d, m, e);
 
 	double angle_between_BD_and_BE = Vector<double>::AngleBetween(BD, BE);
 	double angle_between_BX_and_BE = Vector<double>::AngleBetween(BX, BE);
 	double pseudo = Vector<double>::Pseudoscalar(BE, BX);
 
-	return (bool)(angle_between_BX_and_BE <= angle_between_BD_and_BE && pseudo > 0 );
+	return (bool)(angle_between_BX_and_BE <= angle_between_BD_and_BE && pseudo > 0);
 }
 
 double Figure::ExactAreaValue()
@@ -64,11 +65,11 @@ double Figure::ExactAreaValue()
 }
 double Figure::MonteCarloAlgorithm()
 {
-	Rectangle rectangle(b, d, m, e); // определяем прямоугольник, в котором находится фигура 
+	Rectangle rectangle(b, d, m, e);			// определяем прямоугольник, в котором находится фигура 
 	double rectangle_area = rectangle.Area();
 
-	double amount_points = 1e5; // количество новых точек 
-	int number_points_inside_figure = 0; // счетчик кол-ва точек внутри фигуры 
+	double amount_points = 1e6;					// количество новых точек 
+	int number_points_inside_figure = 0;		// счетчик кол-ва точек внутри фигуры 
 
 	double x_min = rectangle.GetA().GetX();
 	double x_max = rectangle.GetD().GetX();
