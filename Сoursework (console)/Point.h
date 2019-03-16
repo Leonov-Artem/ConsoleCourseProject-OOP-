@@ -18,8 +18,8 @@ public:
 
 		static Point GeneratePoint(double x_min, double x_max, double y_min, double y_max)
 		{
-			double x = RandomNumber::FromNormalDistribution(x_min, x_max);
-			double y = RandomNumber::FromNormalDistribution(y_min, y_max);
+			double x = RandomNumber::FromUniformDistribution(x_min, x_max);
+			double y = RandomNumber::FromUniformDistribution(y_min, y_max);
 			return Point(x, y);
 		}
 

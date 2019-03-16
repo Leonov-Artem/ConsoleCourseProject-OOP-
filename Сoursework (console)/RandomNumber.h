@@ -5,8 +5,7 @@
 class RandomNumber
 {
 public:
-	RandomNumber();
-	static double FromNormalDistribution(double min, double max);
+	static double FromUniformDistribution(double min, double max);
 };
 
 #endif // !GETRANDOMNUMBER_H

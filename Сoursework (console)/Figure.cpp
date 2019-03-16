@@ -68,7 +68,7 @@ double Figure::MonteCarloAlgorithm()
 	Rectangle rectangle(b, d, m, e);			// определяем прямоугольник, в котором находится фигура 
 	double rectangle_area = rectangle.Area();
 
-	double amount_points = 1e6;					// количество новых точек 
+	double amount_points = 1e3;					// количество новых точек 
 	int number_points_inside_figure = 0;		// счетчик кол-ва точек внутри фигуры 
 
 	double x_min = rectangle.GetA().GetX();
