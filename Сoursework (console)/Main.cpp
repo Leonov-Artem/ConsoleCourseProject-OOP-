@@ -26,7 +26,7 @@ int main()
 
 	cout << "Точное значение площади: " <<ExactAreaValue << endl;
 	cout << "Монте-Карло : " <<motneCarlo << endl;
-	cout << "Относительная погрешность: " << RelativeError(ExactAreaValue, motneCarlo) << endl;
+	cout << "Относительная погрешность: " << RelativeError(ExactAreaValue, motneCarlo) << endl;	
 
 	system("pause");
 	return 0;
