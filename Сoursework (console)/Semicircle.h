@@ -7,6 +7,8 @@ private:
 	PointD d, m, e, centre;
 	double r;
 
+	double SemicircleEquation(PointD point);
+
 public:
 	Semicircle(PointD d, PointD m, PointD e);
 	
@@ -22,7 +24,8 @@ public:
 	__declspec(property(get = GetCentre))	PointD Centre;
 	__declspec(property(get = R))			double Radius;
 
-	double CircleEquation(PointD point);
+	bool PointInsideSemicircle(PointD point);
+
 	double Area();
 };
 

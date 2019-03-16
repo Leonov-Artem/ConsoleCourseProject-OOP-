@@ -19,9 +19,11 @@ PointD Semicircle::GetCentre()	{ return centre; }
 double Semicircle::R()			{ return r; }
 double Semicircle::Area()		{ return 0.5 * M_PI * r * r; }
 
-double Semicircle::CircleEquation(PointD point)
+double Semicircle::SemicircleEquation(PointD point)
 {
-	double x = point.X - centre.X;
-	double y = point.Y - centre.Y;
-	return pow(x, 2) + pow(y, 2);
+	return centre.X + sqrt(pow(Radius, 2) - pow(point.Y - centre.Y, 2));
+}
+bool Semicircle::PointInsideSemicircle(PointD point)
+{
+	return (bool)(point.X < SemicircleEquation(point));
 }
