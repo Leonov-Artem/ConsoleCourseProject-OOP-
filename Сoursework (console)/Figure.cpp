@@ -48,14 +48,9 @@ PointD Figure::GetE() { return e; }
 
 bool Figure::Hit(PointD x)
 {
-	Vector BD(b, d), BX(b, x), BE(b, e);
 	Semicircle semicircle(d, m, e);
 
-	double angle_between_BD_and_BE = Vector::AngleBetween(BD, BE);
-	double angle_between_BX_and_BE = Vector::AngleBetween(BX, BE);
-	double pseudo = Vector::Pseudoscalar(BE, BX);
-
-	return (bool)(angle_between_BX_and_BE <= angle_between_BD_and_BE && pseudo > 0);
+	
 }
 
 double Figure::ExactAreaValue()

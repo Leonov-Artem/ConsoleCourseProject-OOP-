@@ -24,5 +24,7 @@ public:
 	__declspec(property(get = GetHeight)) double Height;
 	__declspec(property(get = GetBase)) double Base;
 
+	bool PointInsideTriangle(PointD point);
+
 	double Area();
 };
