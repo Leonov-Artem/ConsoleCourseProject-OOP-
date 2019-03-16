@@ -46,11 +46,18 @@ PointD Figure::GetD() { return d; }
 PointD Figure::GetM() { return m; }
 PointD Figure::GetE() { return e; }
 
-bool Figure::Hit(PointD x)
+bool Figure::Hit(PointD point)
 {
-	Semicircle semicircle(d, m, e);
-
-	
+	if (point.X >= e.X)
+	{
+		Semicircle semicircle(d, m, e);
+		return semicircle.PointInsideSemicircle(point);
+	}
+	else
+	{
+		Triangle triangle(b, d, e);
+		return triangle.PointInsideTriangle(point);
+	}
 }
 
 double Figure::ExactAreaValue()
