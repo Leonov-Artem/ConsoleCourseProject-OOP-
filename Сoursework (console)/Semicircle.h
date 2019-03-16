@@ -4,19 +4,25 @@
 class Semicircle
 {
 private:
-	Point<double> d, m, e, centre;
+	PointD d, m, e, centre;
 	double r;
 
 public:
-	Semicircle(Point<double> d, Point<double> m, Point<double> e);
+	Semicircle(PointD d, PointD m, PointD e);
 	
-	Point<double> GetD();
-	Point<double> GetM();
-	Point<double> GetE();
-	Point<double> Centre();
+	PointD GetD();
+	PointD GetM();
+	PointD GetE();
+	PointD GetCentre();
 	double R();
 
-	double CircleEquation(Point<double> point);
+	__declspec(property(get = GetD))		PointD D;
+	__declspec(property(get = GetM))		PointD M;
+	__declspec(property(get = GetE))		PointD E;
+	__declspec(property(get = GetCentre))	PointD Centre;
+	__declspec(property(get = R))			double Radius;
+
+	double CircleEquation(PointD point);
 	double Area();
 };
 

@@ -1,32 +1,32 @@
 #include "Rectangle.h"
 #include "Point.h"
 
-void Rectangle::CoordinateDetermination(Point<double> b, Point<double> d, Point<double> m, Point<double> e)
+void Rectangle::CoordinateDetermination(PointD b, PointD d, PointD m, PointD e)
 {
-	length = m.GetX() - b.GetX();
-	width = d.GetY() - e.GetY();
+	length = m.X - b.X;
+	width = d.Y - e.Y;
 
-	A = Point<double>(b.GetX(),		e.GetY());
-	B = Point<double>(b.GetX(),		d.GetY());
-	C = Point<double>(m.GetX(),		d.GetY());
-	D = Point<double>(m.GetX(),		e.GetY());
+	A = PointD(b.X,	e.Y);
+	B = PointD(b.X,	d.Y);
+	C = PointD(m.X,	d.Y);
+	D = PointD(m.X,	e.Y);
 }
 
 Rectangle::Rectangle() 
 { 
-	A = B = C = D = Point<double>(0, 0); 
+	A = B = C = D = PointD(0, 0); 
 }
-Rectangle::Rectangle(Point<double> b, Point<double> d, Point<double> m, Point<double> e)
+Rectangle::Rectangle(PointD b, PointD d, PointD m, PointD e)
 {
 	CoordinateDetermination(b, d, m, e);
 }
 
-Point<double> Rectangle::GetA() { return A; }
-Point<double> Rectangle::GetB() { return B; }
-Point<double> Rectangle::GetC() { return C; }
-Point<double> Rectangle::GetD() { return D; }
+PointD Rectangle::GetA()		{ return A; }
+PointD Rectangle::GetB()		{ return B; }
+PointD Rectangle::GetC()		{ return C; }
+PointD Rectangle::GetD()		{ return D; }
 
-double Rectangle::Length()		{ return length; }
-double Rectangle::Width()		{ return width; }
+double Rectangle::GetLength()	{ return length; }
+double Rectangle::GetWidth()	{ return width; }
 
 double Rectangle::Area()		{ return length * width; }

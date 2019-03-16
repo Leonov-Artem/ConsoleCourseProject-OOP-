@@ -1,37 +1,29 @@
 #pragma once
+
 #include "RandomNumber.h"
+#include <iostream>
+
 #ifndef POINT_H
 #define POINT_H
 
-template <typename T>
-class Point
+class PointD
 {
 private:
-	T x, y;
-
-	T GetX() { return x; }
-	T GetY() { return y; }
+	double x, y;
 
 public:
-	Point()						{ x = 0; y = 0; }
-	Point(T x, T y)				{ this->x = x; this->y = y; }
-	Point(const Point& point)	{ x = point.X; y = point.Y; }
+	PointD();
+	PointD(double x, double y);
 
-	__declspec(property(get = GetX)) T X;
-	__declspec(property(get = GetX)) T Y;
+	double GetX();
+	double GetY();
 
-	static Point GeneratePoint(double x_min, double x_max, double y_min, double y_max)
-	{
-		double x = RandomNumber::FromUniformDistribution(x_min, x_max);
-		double y = RandomNumber::FromUniformDistribution(y_min, y_max);
-		return Point(x, y);
-	}
+	__declspec(property(get = GetX)) double X;
+	__declspec(property(get = GetY)) double Y;
 
-	void Print()
-	{
-		std::cout << "x = " << x << std::endl;
-		std::cout << "y = " << y << std::endl;
-	}
+	static PointD GeneratePoint(double x_min, double x_max, double y_min, double y_max);
+
+	void Print();
 };
 
 #endif // !POINT_H

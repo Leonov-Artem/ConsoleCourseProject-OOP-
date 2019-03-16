@@ -1,5 +1,6 @@
 #include "Figure.h"
 #include "Triangle.h"
+#include "Point.h"
 #include "Vector.h"
 #include "Rectangle.h"
 #include "Semicircle.h"
@@ -7,17 +8,17 @@
 
 Figure::Figure() 
 {
-	b = d = m = e = Point<double>(0, 0);
+	b = d = m = e = PointD(0, 0);
 }
-Figure::Figure(Point<double> point1, Point<double> point2)
+Figure::Figure(PointD point1, PointD point2)
 {
 	// определение всех координат фигуры по двум введенным координатам
 	CoordinateDetermination(point1, point2);
 }
 
-void Figure::CoordinateDetermination(Point<double> point1, Point<double> point2)
+void Figure::CoordinateDetermination(PointD point1, PointD point2)
 {
-	if (point1.GetX() < point2.GetX())
+	if (point1.X < point2.X)
 		// значит point1 - это точка b
 		b = point1;
 	else
@@ -26,33 +27,33 @@ void Figure::CoordinateDetermination(Point<double> point1, Point<double> point2)
 		point2 = point1; // чтобы убрать лишние проверки
 	}
 
-	if (b.GetY() > point2.GetY())
+	if (b.Y > point2.Y)
 	{
 		e = point2;
-		d = Point<double>(e.GetX(), e.GetY() + 2 * (b.GetY() - e.GetY()));
+		d = PointD(e.X, e.Y + 2 * (b.Y - e.Y));
 	}
 	else
 	{
 		d = point2;
-		e = Point<double>(d.GetX(), d.GetY() - 2 * (d.GetY() - b.GetY()));
+		e = PointD(d.X, d.Y - 2 * (d.Y - b.Y));
 	}
 
-	m = Point<double>(e.GetX() + b.GetY() - e.GetY(), b.GetY());
+	m = PointD(e.X + b.Y - e.Y, b.Y);
 }
 
-Point<double> Figure::GetB() { return this->b; }
-Point<double> Figure::GetD() { return this->d; }
-Point<double> Figure::GetM() { return this->m; }
-Point<double> Figure::GetE() { return this->e; }
+PointD Figure::GetB() { return b; }
+PointD Figure::GetD() { return d; }
+PointD Figure::GetM() { return m; }
+PointD Figure::GetE() { return e; }
 
-bool Figure::Hit(Point<double> x)
+bool Figure::Hit(PointD x)
 {
-	Vector<double> BD(b, d), BX(b, x), BE(b, e);
+	Vector BD(b, d), BX(b, x), BE(b, e);
 	Semicircle semicircle(d, m, e);
 
-	double angle_between_BD_and_BE = Vector<double>::AngleBetween(BD, BE);
-	double angle_between_BX_and_BE = Vector<double>::AngleBetween(BX, BE);
-	double pseudo = Vector<double>::Pseudoscalar(BE, BX);
+	double angle_between_BD_and_BE = Vector::AngleBetween(BD, BE);
+	double angle_between_BX_and_BE = Vector::AngleBetween(BX, BE);
+	double pseudo = Vector::Pseudoscalar(BE, BX);
 
 	return (bool)(angle_between_BX_and_BE <= angle_between_BD_and_BE && pseudo > 0);
 }
@@ -68,18 +69,18 @@ double Figure::MonteCarloAlgorithm()
 	Rectangle rectangle(b, d, m, e);			// определяем прямоугольник, в котором находится фигура 
 	double rectangle_area = rectangle.Area();
 
-	double amount_points = 1e3;					// количество новых точек 
+	double amount_points = 1e4;					// количество новых точек 
 	int number_points_inside_figure = 0;		// счетчик кол-ва точек внутри фигуры 
 
-	double x_min = rectangle.GetA().GetX();
-	double x_max = rectangle.GetD().GetX();
-	double y_min = rectangle.GetA().GetY();
-	double y_max = rectangle.GetB().GetY();
+	double x_min = rectangle.VertexA.X;
+	double x_max = rectangle.VertexD.X;
+	double y_min = rectangle.VertexA.Y;
+	double y_max = rectangle.VertexB.Y;
 
 	for (int i = 0; i < amount_points; i++)
 	{
 		// генерируем новую точку 
-		Point<double> new_point = Point<double>::GeneratePoint(x_min, x_max, y_min, y_max);
+		PointD new_point = PointD::GeneratePoint(x_min, x_max, y_min, y_max);
 
 		// проверяем точку на попадание внутрь 
 		if (Hit(new_point))

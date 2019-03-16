@@ -4,19 +4,24 @@
 class Figure
 {
 private:
-	Point<double> b, d, m, e;
-	void CoordinateDetermination(Point<double> point1, Point<double> point2);
+	PointD b, d, m, e;
+	void CoordinateDetermination(PointD point1, PointD point2);
 
 public:
 	Figure();
-	Figure(Point<double> poin1, Point<double> point2);
-	
-	Point<double> GetB();
-	Point<double> GetD();
-	Point<double> GetM();
-	Point<double> GetE();
+	Figure(PointD poin1, PointD point2);
 
-	bool Hit(Point<double> x);
+	PointD GetB();
+	PointD GetD();
+	PointD GetM();
+	PointD GetE();
+
+	__declspec(property(get = GetB)) PointD B;
+	__declspec(property(get = GetD)) PointD D;
+	__declspec(property(get = GetM)) PointD M;
+	__declspec(property(get = GetE)) PointD E;
+
+	bool Hit(PointD x);
 
 	double ExactAreaValue();
 	double MonteCarloAlgorithm();

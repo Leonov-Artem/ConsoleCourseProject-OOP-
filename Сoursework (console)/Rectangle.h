@@ -4,22 +4,30 @@
 class Rectangle
 {
 private:
-	Point<double> A, B, C, D;
+	PointD A, B, C, D;
 	double length, width;
 
-	void CoordinateDetermination(Point<double> b, Point<double> d, Point<double> m, Point<double> e);
+	void CoordinateDetermination(PointD b, PointD d, PointD m, PointD e);
 
 public:
 	Rectangle();
-	Rectangle(Point<double> b, Point<double> d, Point<double> m, Point<double> e);
+	Rectangle(PointD b, PointD d, PointD m, PointD e);
 
-	Point<double> GetA();
-	Point<double> GetB();
-	Point<double> GetC();
-	Point<double> GetD();
+	PointD GetA();
+	PointD GetB();
+	PointD GetC();
+	PointD GetD();
 
-	double Length();
-	double Width();
+	__declspec(property(get = GetA)) PointD VertexA;
+	__declspec(property(get = GetB)) PointD VertexB;
+	__declspec(property(get = GetC)) PointD VertexC;
+	__declspec(property(get = GetD)) PointD VertexD;
+
+	double GetLength();
+	double GetWidth();
+
+	__declspec(property(get = GetLength)) double Length;
+	__declspec(property(get = GetWidth)) double Width;
 
 	double Area();
 };

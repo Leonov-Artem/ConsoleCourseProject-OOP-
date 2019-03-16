@@ -18,7 +18,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Point<double> b(-5, 2), d(3, 8);
+	PointD b(-5, 2), d(3, 8);
 	Figure f(b, d);
 
 	double ExactAreaValue = f.ExactAreaValue();
