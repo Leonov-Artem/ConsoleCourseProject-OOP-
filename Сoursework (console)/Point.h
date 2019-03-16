@@ -16,6 +16,9 @@ public:
 		T GetX()			{ return x; }
 		T GetY()			{ return y; }
 
+		__declspec(property(get = GetX)) T X;
+		__declspec(property(get = GetX)) T Y;
+
 		static Point GeneratePoint(double x_min, double x_max, double y_min, double y_max)
 		{
 			double x = RandomNumber::FromUniformDistribution(x_min, x_max);
