@@ -24,6 +24,11 @@ void SetLength(Vector& vector)
 	double y = vector.p2.y;
 	vector.Length = sqrt(vector.x * vector.x + vector.y * vector.y);
 }
+void SetXandY(Vector& vector)
+{
+	vector.x = vector.p2.x - vector.p1.x;
+	vector.y = vector.p2.y - vector.p1.y;
+}
 
 Vector CreateVector(PointD p1, PointD p2)
 {
@@ -31,15 +36,13 @@ Vector CreateVector(PointD p1, PointD p2)
 	v.p1 = p1;
 	v.p2 = p2;
 
-	v.x = p2.x - p1.x;
-	v.y = p2.y - p1.y;
-
+	SetXandY(v);
 	SetLength(v);
 
 	return v;
 }
 
-double Pseudoscalar(Vector v1, Vector v2)	{ return v1.x*v2.y - v2.x*v1.y; }
+double Pseudoscalar(Vector v1, Vector v2)	{ return v1.x * v2.y - v2.x * v1.y; }
 double Dot(Vector v1, Vector v2)			{ return v1.x * v2.x + v1.y * v2.y; }
 double AngleBetween(Vector v1, Vector v2)
 {
