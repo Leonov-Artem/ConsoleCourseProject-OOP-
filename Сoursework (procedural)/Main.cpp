@@ -1,23 +1,29 @@
 #include <iostream>
-#include "RandomNumber.h"
-#include "Point.h"
-#include "Vector.h"
-#include "Triangle.h"
-#include "Semicircle.h"
-#include "Rectangle.h"
+#include "Figure.h"
+
+double RelativeError(double exact_value, double approximation)
+{
+	return abs(exact_value - approximation) / exact_value * 100;
+}
 
 int main()
 {
 	using namespace std;
 
-	PointD b{ 0, 0 };
-	PointD d{ 5, 2 };
-	PointD m{ 7, 0 };
-	PointD e{ 5, -2 };
+	setlocale(LC_CTYPE, "");
 
-	Rectangle r;
-	r = CreateRectangle(b, d, m, e);
-	cout << r.length << endl;
+	PointD b{ -12, 0 }; 
+	PointD d{ -6, 2 };
+
+	Figure f;
+	f = CreateFigure(b, d);
+
+	double a1 = f.ExactAreaValue;
+	double a2 = f.MonteCarloAlgorithm;
+
+	cout << "Точное значение площади: " << a1 << endl;
+	cout << "Монте-Карло: " << a2 << endl;
+	cout << "Относительная погрешность: " << RelativeError(a1, a2) << "%" << endl;
 
 	system("pause");
 	return 0;

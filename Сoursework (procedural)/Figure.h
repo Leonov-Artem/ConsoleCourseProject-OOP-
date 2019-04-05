@@ -42,26 +42,26 @@ bool Hit(Figure figure, PointD point)
 {
 	if (point.x >= figure.e.x)
 	{
-		Semicircle semicircle{ figure.d, figure.m, figure.e };
+		Semicircle semicircle = CreateSemicircle(figure.d, figure.m, figure.e);
 		return PointInsideSemicircle(semicircle, point);
 	}
 	else
 	{
-		Triangle triangle{ figure.b, figure.d, figure.e };
+		Triangle triangle = CreateTriangle(figure.b, figure.d, figure.e);
 		return PointInsideTriangle(triangle, point);
 	}
 }
 
 void СalculateExactAreaValue(Figure& figure)
 {
-	double area_triangle = Triangle{ figure.b, figure.d, figure.e }.Area;
-	double area_semicircle = Semicircle{ figure.d, figure.m, figure.e }.Area;
-	figure.ExactAreaValue = area_semicircle + area_triangle;
+	Triangle triangle = CreateTriangle(figure.b, figure.d, figure.e);
+	Semicircle semicircle = CreateSemicircle(figure.d, figure.m, figure.e);
+	figure.ExactAreaValue = triangle.Area + semicircle.Area;
 }
 void ScalculateMonteCarlo(Figure& figure)
 {
 	// определяем прямоугольник, в котором находится фигура 
-	Rectangle rectangle{ figure.b, figure.d, figure.m, figure.e };		
+	Rectangle rectangle = CreateRectangle(figure.b, figure.d, figure.m, figure.e);
 	double rectangle_area = rectangle.Area;
 
 	double amount_points = 1e4;					// количество новых точек 
