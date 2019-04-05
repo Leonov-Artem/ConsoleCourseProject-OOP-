@@ -18,15 +18,15 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	PointD b(-5, 2), d(3, 8);
+	PointD b(-12, 0), d(-6, 2);
 	Figure f(b, d);
 
 	double ExactAreaValue = f.ExactAreaValue();
-	double motneCarlo = f.MonteCarloAlgorithm();
+	double monteCarlo = f.MonteCarloAlgorithm();
 
 	cout << "Точное значение площади: " <<ExactAreaValue << endl;
-	cout << "Монте-Карло : " <<motneCarlo << endl;
-	cout << "Относительная погрешность: " << RelativeError(ExactAreaValue, motneCarlo) << "%" << endl;	
+	cout << "Монте-Карло : " <<monteCarlo << endl;
+	cout << "Относительная погрешность: " << RelativeError(ExactAreaValue, monteCarlo) << "%" << endl;	
 
 	system("pause");
 	return 0;
