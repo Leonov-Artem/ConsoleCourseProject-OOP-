@@ -9,13 +9,8 @@
 
 struct Vector
 {
-	PointD p1; 
-	PointD p2;
-
-	double x;
-	double y;
-
-	double Length;
+	PointD p1, p2;
+	double x, y, Length;
 };
 
 void SetLength(Vector& vector)
