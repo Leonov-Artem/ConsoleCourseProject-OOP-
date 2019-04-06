@@ -234,10 +234,23 @@ namespace CppCLR_WinformsProjekt
 		}
 	private: System::Void button_Calculate_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		PointD b{ Double::Parse(textBox_PointB_x->Text), Double::Parse(textBox_PointB_y->Text) };
-		PointD d{ Double::Parse(textBox_PointD_x->Text), Double::Parse(textBox_PointD_y->Text) };
+		//ProceduralProject::PointD b{ Double::Parse(textBox_PointB_x->Text), Double::Parse(textBox_PointB_y->Text) };
+		//ProceduralProject::PointD d{ Double::Parse(textBox_PointD_x->Text), Double::Parse(textBox_PointD_y->Text) };
 
-		Figure figure;
+		//ProceduralProject::Figure figure;
+		//figure = CreateFigure(b, d);
+
+		//double exact_area = figure.ExactAreaValue;
+		//double monte_carclo = СalculateMonteCarlo(figure, 1e4);
+
+		//label_exact_value->Text = "Точное значение площади: " + exact_area.ToString();
+		//label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
+		//labe_relative_error->Text = "Относительная погрешность: " + RelativeError(exact_area, monte_carclo).ToString() + "%";
+
+		ObjectOrientedProject::PointD b{ Double::Parse(textBox_PointB_x->Text), Double::Parse(textBox_PointB_y->Text) };
+		ProceduralProject::PointD d{ Double::Parse(textBox_PointD_x->Text), Double::Parse(textBox_PointD_y->Text) };
+
+		ProceduralProject::Figure figure;
 		figure = CreateFigure(b, d);
 
 		double exact_area = figure.ExactAreaValue;

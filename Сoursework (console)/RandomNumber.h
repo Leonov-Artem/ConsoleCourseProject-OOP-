@@ -2,10 +2,13 @@
 #ifndef GETRANDOMNUMBER_H
 #define GETRANDOMNUMBER_H
 
-class RandomNumber
+namespace ObjectOrientedProject
 {
-public:
-	static double FromUniformDistribution(double min, double max);
-};
+	class RandomNumber
+	{
+	public:
+		static double FromUniformDistribution(double min, double max);
+	};
+}
 
 #endif // !GETRANDOMNUMBER_H
