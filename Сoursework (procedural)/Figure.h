@@ -9,7 +9,7 @@
 struct Figure
 {
 	PointD b, d, m, e;
-	double ExactAreaValue, MonteCarloAlgorithm;
+	double ExactAreaValue;
 };
 
 void SetCoordinate(Figure& figure, PointD point1, PointD point2)
@@ -58,19 +58,18 @@ void СalculateExactAreaValue(Figure& figure)
 	Semicircle semicircle = CreateSemicircle(figure.d, figure.m, figure.e);
 	figure.ExactAreaValue = triangle.Area + semicircle.Area;
 }
-void ScalculateMonteCarlo(Figure& figure)
+double СalculateMonteCarlo(Figure& figure, double amount_points=1e4)
 {
 	// определяем прямоугольник, в котором находится фигура 
 	Rectangle rectangle = CreateRectangle(figure.b, figure.d, figure.m, figure.e);
 	double rectangle_area = rectangle.Area;
 
-	double amount_points = 1e4;					// количество новых точек 
-	int number_points_inside_figure = 0;		// счетчик кол-ва точек внутри фигуры 
-
 	double x_min = rectangle.A.x;
 	double x_max = rectangle.D.x;
 	double y_min = rectangle.A.y;
 	double y_max = rectangle.B.y;
+
+	int number_points_inside_figure = 0;		// счетчик кол-ва точек внутри фигуры 
 
 	for (int i = 0; i < amount_points; i++)
 	{
@@ -82,7 +81,7 @@ void ScalculateMonteCarlo(Figure& figure)
 			number_points_inside_figure++;
 	}
 
-	figure.MonteCarloAlgorithm = rectangle_area * number_points_inside_figure / amount_points;
+	return  rectangle_area * number_points_inside_figure / amount_points;
 }
 
 Figure CreateFigure(PointD point1, PointD point2)
@@ -92,7 +91,6 @@ Figure CreateFigure(PointD point1, PointD point2)
 	// определение всех координат фигуры по двум введенным координатам
 	SetCoordinate(figure, point1, point2);
 	СalculateExactAreaValue(figure);
-	ScalculateMonteCarlo(figure);
 
 	return figure;
 }

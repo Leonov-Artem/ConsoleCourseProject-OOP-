@@ -19,10 +19,10 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	PointD b(-12, 0), d(-6, 2);
-	Figure f(b, d);
+	Figure figure(b, d);
 
-	double ExactAreaValue = f.ExactAreaValue();
-	double monteCarlo = f.MonteCarloAlgorithm();
+	double ExactAreaValue = figure.ExactAreaValue();
+	double monteCarlo = figure.MonteCarloAlgorithm(1e3);
 
 	cout << "Точное значение площади: " <<ExactAreaValue << endl;
 	cout << "Монте-Карло : " <<monteCarlo << endl;

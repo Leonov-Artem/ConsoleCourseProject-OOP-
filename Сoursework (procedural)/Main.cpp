@@ -15,15 +15,15 @@ int main()
 	PointD b{ -12, 0 }; 
 	PointD d{ -6, 2 };
 
-	Figure f;
-	f = CreateFigure(b, d);
+	Figure figure;
+	figure = CreateFigure(b, d);
 
-	double a1 = f.ExactAreaValue;
-	double a2 = f.MonteCarloAlgorithm;
+	double exact_area = figure.ExactAreaValue;
+	double monte_carclo = СalculateMonteCarlo(figure, 1e4);
 
-	cout << "Точное значение площади: " << a1 << endl;
-	cout << "Монте-Карло: " << a2 << endl;
-	cout << "Относительная погрешность: " << RelativeError(a1, a2) << "%" << endl;
+	cout << "Точное значение площади: " << exact_area << endl;
+	cout << "Монте-Карло: " << monte_carclo << endl;
+	cout << "Относительная погрешность: " << RelativeError(exact_area, monte_carclo) << "%" << endl;
 
 	system("pause");
 	return 0;

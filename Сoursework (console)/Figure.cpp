@@ -66,18 +66,17 @@ double Figure::ExactAreaValue()
 	double area_semicircle = Semicircle(d, m, e).Area();
 	return area_semicircle + area_triangle;
 }
-double Figure::MonteCarloAlgorithm()
+double Figure::MonteCarloAlgorithm(double amount_points)
 {
 	Rectangle rectangle(b, d, m, e);			// определяем прямоугольник, в котором находится фигура 
 	double rectangle_area = rectangle.Area();
-
-	double amount_points = 1e4;					// количество новых точек 
-	int number_points_inside_figure = 0;		// счетчик кол-ва точек внутри фигуры 
 
 	double x_min = rectangle.VertexA.X;
 	double x_max = rectangle.VertexD.X;
 	double y_min = rectangle.VertexA.Y;
 	double y_max = rectangle.VertexB.Y;
+
+	int number_points_inside_figure = 0;		// счетчик кол-ва точек внутри фигуры 
 
 	for (int i = 0; i < amount_points; i++)
 	{

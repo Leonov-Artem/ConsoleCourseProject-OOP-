@@ -24,5 +24,5 @@ public:
 	bool Hit(PointD x);
 
 	double ExactAreaValue();
-	double MonteCarloAlgorithm();
+	double MonteCarloAlgorithm(double amount_points=1e4);
 };
