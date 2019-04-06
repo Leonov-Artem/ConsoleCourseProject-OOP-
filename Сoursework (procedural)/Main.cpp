@@ -6,6 +6,8 @@ double RelativeError(double exact_value, double approximation)
 	return abs(exact_value - approximation) / exact_value * 100;
 }
 
+using namespace ProceduralProject;
+
 int main()
 {
 	using namespace std;
@@ -19,7 +21,7 @@ int main()
 	figure = CreateFigure(b, d);
 
 	double exact_area = figure.ExactAreaValue;
-	double monte_carclo = ÑalculateMonteCarlo(figure, 1e4);
+	double monte_carclo = ÑalculateMonteCarlo(figure, 1e6);
 
 	cout << "Òî÷íîå çíà÷åíèå ïëîùàäè: " << exact_area << endl;
 	cout << "Ìîíòå-Êàðëî: " << monte_carclo << endl;

@@ -1,6 +1,9 @@
 #pragma once
 
-struct PointD
+namespace ProceduralProject
 {
-	double x, y;
-};
+	struct PointD
+	{
+		double x, y;
+	};
+}

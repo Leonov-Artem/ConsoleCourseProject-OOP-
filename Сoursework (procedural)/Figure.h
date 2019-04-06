@@ -6,91 +6,94 @@
 #include "Rectangle.h"
 #include "RandomNumber.h"
 
-struct Figure
+namespace ProceduralProject
 {
-	PointD b, d, m, e;
-	double ExactAreaValue;
-};
-
-void SetCoordinate(Figure& figure, PointD point1, PointD point2)
-{
-	if (point1.x < point2.x)
-		// значит point1 - это точка b
-		figure.b = point1;
-	else
+	struct Figure
 	{
-		figure.b = point2;
-		point2 = point1; // чтобы убрать лишние проверки
+		PointD b, d, m, e;
+		double ExactAreaValue;
+	};
+
+	void SetCoordinate(Figure& figure, PointD point1, PointD point2)
+	{
+		if (point1.x < point2.x)
+			// значит point1 - это точка b
+			figure.b = point1;
+		else
+		{
+			figure.b = point2;
+			point2 = point1; // чтобы убрать лишние проверки
+		}
+
+		if (figure.b.y > point2.y)
+		{
+			figure.e = point2;
+			figure.d = PointD{ figure.e.x, figure.e.y + 2 * (figure.b.y - figure.e.y) };
+		}
+		else
+		{
+			figure.d = point2;
+			figure.e = PointD{ figure.d.x, figure.d.y - 2 * (figure.d.y - figure.b.y) };
+		}
+
+		figure.m = PointD{ figure.e.x + figure.b.y - figure.e.y, figure.b.y };
 	}
 
-	if (figure.b.y > point2.y)
+
+	bool Hit(Figure figure, PointD point)
 	{
-		figure.e = point2;
-		figure.d = PointD{ figure.e.x, figure.e.y + 2 * (figure.b.y - figure.e.y) };
-	}
-	else
-	{
-		figure.d = point2;
-		figure.e = PointD{ figure.d.x, figure.d.y - 2 * (figure.d.y - figure.b.y) };
+		if (point.x >= figure.e.x)
+		{
+			Semicircle semicircle = CreateSemicircle(figure.d, figure.m, figure.e);
+			return PointInsideSemicircle(semicircle, point);
+		}
+		else
+		{
+			Triangle triangle = CreateTriangle(figure.b, figure.d, figure.e);
+			return PointInsideTriangle(triangle, point);
+		}
 	}
 
-	figure.m = PointD{ figure.e.x + figure.b.y - figure.e.y, figure.b.y };
-}
-
-
-bool Hit(Figure figure, PointD point)
-{
-	if (point.x >= figure.e.x)
-	{
-		Semicircle semicircle = CreateSemicircle(figure.d, figure.m, figure.e);
-		return PointInsideSemicircle(semicircle, point);
-	}
-	else
+	void СalculateExactAreaValue(Figure& figure)
 	{
 		Triangle triangle = CreateTriangle(figure.b, figure.d, figure.e);
-		return PointInsideTriangle(triangle, point);
+		Semicircle semicircle = CreateSemicircle(figure.d, figure.m, figure.e);
+		figure.ExactAreaValue = triangle.Area + semicircle.Area;
 	}
-}
-
-void СalculateExactAreaValue(Figure& figure)
-{
-	Triangle triangle = CreateTriangle(figure.b, figure.d, figure.e);
-	Semicircle semicircle = CreateSemicircle(figure.d, figure.m, figure.e);
-	figure.ExactAreaValue = triangle.Area + semicircle.Area;
-}
-double СalculateMonteCarlo(Figure& figure, double amount_points=1e4)
-{
-	// определяем прямоугольник, в котором находится фигура 
-	Rectangle rectangle = CreateRectangle(figure.b, figure.d, figure.m, figure.e);
-	double rectangle_area = rectangle.Area;
-
-	double x_min = rectangle.A.x;
-	double x_max = rectangle.D.x;
-	double y_min = rectangle.A.y;
-	double y_max = rectangle.B.y;
-
-	int number_points_inside_figure = 0;		// счетчик кол-ва точек внутри фигуры 
-
-	for (int i = 0; i < amount_points; i++)
+	double СalculateMonteCarlo(Figure& figure, double amount_points = 1e4)
 	{
-		// генерируем новую точку 
-		PointD new_point = GeneratePoint(x_min, x_max, y_min, y_max);
+		// определяем прямоугольник, в котором находится фигура 
+		Rectangle rectangle = CreateRectangle(figure.b, figure.d, figure.m, figure.e);
+		double rectangle_area = rectangle.Area;
 
-		// проверяем точку на попадание внутрь 
-		if (Hit(figure, new_point))
-			number_points_inside_figure++;
+		double x_min = rectangle.A.x;
+		double x_max = rectangle.D.x;
+		double y_min = rectangle.A.y;
+		double y_max = rectangle.B.y;
+
+		int number_points_inside_figure = 0;		// счетчик кол-ва точек внутри фигуры 
+
+		for (int i = 0; i < amount_points; i++)
+		{
+			// генерируем новую точку 
+			PointD new_point = GeneratePoint(x_min, x_max, y_min, y_max);
+
+			// проверяем точку на попадание внутрь 
+			if (Hit(figure, new_point))
+				number_points_inside_figure++;
+		}
+
+		return  rectangle_area * number_points_inside_figure / amount_points;
 	}
 
-	return  rectangle_area * number_points_inside_figure / amount_points;
-}
+	Figure CreateFigure(PointD point1, PointD point2)
+	{
+		Figure figure;
 
-Figure CreateFigure(PointD point1, PointD point2)
-{
-	Figure figure;
+		// определение всех координат фигуры по двум введенным координатам
+		SetCoordinate(figure, point1, point2);
+		СalculateExactAreaValue(figure);
 
-	// определение всех координат фигуры по двум введенным координатам
-	SetCoordinate(figure, point1, point2);
-	СalculateExactAreaValue(figure);
-
-	return figure;
+		return figure;
+	}
 }
