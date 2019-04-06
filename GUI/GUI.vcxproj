@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{0c4293c0-774a-4579-966e-4e3473c3e001}</ProjectGuid>
+    <ProjectGuid>{b1be53d9-f94e-4d93-879e-8a69e6068f61}</ProjectGuid>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>GUI</RootNamespace>
@@ -91,7 +91,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>D:\c++_project\2 курс. ООП\Сoursework %28console%29\Сoursework %28procedural%29;D:\c++_project\2 курс. ООП\Сoursework %28console%29\Сoursework %28console%29;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\c++_project\2 курс. ООП\Сoursework %28console%29\Сoursework %28procedural%29;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -174,14 +174,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.h</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Сoursework (console)\Сoursework (console).vcxproj">
-      <Project>{94ae1dfe-1f86-4137-b47b-a85e5d13cd23}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Сoursework (procedural)\Сoursework (procedural).vcxproj">
-      <Project>{bdf255f4-1054-4889-8d37-af01e526687c}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

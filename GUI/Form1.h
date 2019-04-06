@@ -1,5 +1,4 @@
-#pragma once
-#include "Figure.h"
+Ôªø#pragma once
 #include "Figure.h"
 
 namespace CppCLR_WinformsProjekt
@@ -13,7 +12,7 @@ namespace CppCLR_WinformsProjekt
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Zusammenfassung f¸r Form1
+	/// Zusammenfassung f√ºr Form1
 	/// </summary>
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
@@ -22,7 +21,7 @@ namespace CppCLR_WinformsProjekt
 		{
 			InitializeComponent();
 			//
-			//TODO: Konstruktorcode hier hinzuf¸gen.
+			//TODO: Konstruktorcode hier hinzuf√ºgen.
 			//
 		}
 
@@ -65,8 +64,8 @@ namespace CppCLR_WinformsProjekt
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Erforderliche Methode f¸r die Designerunterst¸tzung.
-		/// Der Inhalt der Methode darf nicht mit dem Code-Editor ge‰ndert werden.
+		/// Erforderliche Methode f√ºr die Designerunterst√ºtzung.
+		/// Der Inhalt der Methode darf nicht mit dem Code-Editor ge√§ndert werden.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -93,7 +92,7 @@ namespace CppCLR_WinformsProjekt
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(64, 17);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"“Ó˜Í‡ b:";
+			this->label1->Text = L"–¢–æ—á–∫–∞ b:";
 			// 
 			// label2
 			// 
@@ -134,7 +133,7 @@ namespace CppCLR_WinformsProjekt
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(64, 17);
 			this->label4->TabIndex = 5;
-			this->label4->Text = L"“Ó˜Í‡ d:";
+			this->label4->Text = L"–¢–æ—á–∫–∞ d:";
 			// 
 			// textBox_PointD_x
 			// 
@@ -156,7 +155,7 @@ namespace CppCLR_WinformsProjekt
 			this->button_Calculate->Name = L"button_Calculate";
 			this->button_Calculate->Size = System::Drawing::Size(106, 40);
 			this->button_Calculate->TabIndex = 8;
-			this->button_Calculate->Text = L"¬˚˜ËÒÎËÚ¸";
+			this->button_Calculate->Text = L"–í—ã–ø–æ–ª–Ω–∏—Ç—å";
 			this->button_Calculate->UseVisualStyleBackColor = true;
 			this->button_Calculate->Click += gcnew System::EventHandler(this, &Form1::button_Calculate_Click);
 			// 
@@ -167,7 +166,7 @@ namespace CppCLR_WinformsProjekt
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(99, 17);
 			this->label5->TabIndex = 9;
-			this->label5->Text = L" ÓÎ-‚Ó ÚÓ˜ÂÍ:";
+			this->label5->Text = L"–ö–æ–ª-–≤–æ —Ç–æ—á–µ–∫:";
 			// 
 			// textBox_amount_points
 			// 
@@ -228,37 +227,24 @@ namespace CppCLR_WinformsProjekt
 		}
 #pragma endregion
 
-		private: double RelativeError(double exact_value, double approximation)
-		{
-			return abs(exact_value - approximation) / exact_value * 100;
-		}
+	private: double RelativeError(double exact_value, double approximation)
+	{
+		return abs(exact_value - approximation) / exact_value * 100;
+	}
 	private: System::Void button_Calculate_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		//ProceduralProject::PointD b{ Double::Parse(textBox_PointB_x->Text), Double::Parse(textBox_PointB_y->Text) };
-		//ProceduralProject::PointD d{ Double::Parse(textBox_PointD_x->Text), Double::Parse(textBox_PointD_y->Text) };
-
-		//ProceduralProject::Figure figure;
-		//figure = CreateFigure(b, d);
-
-		//double exact_area = figure.ExactAreaValue;
-		//double monte_carclo = —alculateMonteCarlo(figure, 1e4);
-
-		//label_exact_value->Text = "“Ó˜ÌÓÂ ÁÌ‡˜ÂÌËÂ ÔÎÓ˘‡‰Ë: " + exact_area.ToString();
-		//label_monte_carlo->Text = "ÃÓÌÚÂ- ‡ÎÓ: " + monte_carclo.ToString();
-		//labe_relative_error->Text = "ŒÚÌÓÒËÚÂÎ¸Ì‡ˇ ÔÓ„Â¯ÌÓÒÚ¸: " + RelativeError(exact_area, monte_carclo).ToString() + "%";
-
-		ObjectOrientedProject::PointD b{ Double::Parse(textBox_PointB_x->Text), Double::Parse(textBox_PointB_y->Text) };
+		ProceduralProject::PointD b{ Double::Parse(textBox_PointB_x->Text), Double::Parse(textBox_PointB_y->Text) };
 		ProceduralProject::PointD d{ Double::Parse(textBox_PointD_x->Text), Double::Parse(textBox_PointD_y->Text) };
 
 		ProceduralProject::Figure figure;
 		figure = CreateFigure(b, d);
 
 		double exact_area = figure.ExactAreaValue;
-		double monte_carclo = —alculateMonteCarlo(figure, 1e4);
+		double monte_carclo = –°alculateMonteCarlo(figure, 1e4);
 
-		label_exact_value->Text = "“Ó˜ÌÓÂ ÁÌ‡˜ÂÌËÂ ÔÎÓ˘‡‰Ë: " + exact_area.ToString();
-		label_monte_carlo->Text = "ÃÓÌÚÂ- ‡ÎÓ: " + monte_carclo.ToString();
-		labe_relative_error->Text = "ŒÚÌÓÒËÚÂÎ¸Ì‡ˇ ÔÓ„Â¯ÌÓÒÚ¸: " + RelativeError(exact_area, monte_carclo).ToString() + "%";
+		label_exact_value->Text = "–¢–æ—á–Ω–æ–µ –∑–Ω–∞—á–µ–Ω–∏–µ –ø–ª–æ—â–∞–¥–∏: " + exact_area.ToString();
+		label_monte_carlo->Text = "–ú–æ–Ω—Ç–µ-–ö–∞—Ä–ª–æ: " + monte_carclo.ToString();
+		labe_relative_error->Text = "–û—Ç–Ω–æ—Å–∏—Ç–µ–ª—å–Ω–∞—è –ø–æ–≥—Ä–µ—à–Ω–æ—Å—Ç—å: " + RelativeError(exact_area, monte_carclo).ToString() + "%";
 	}
 	};
 }
