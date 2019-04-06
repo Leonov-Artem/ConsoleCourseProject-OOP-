@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Сoursework (OOP)", "Сours
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Сoursework (procedural)", "Сoursework (procedural)\Сoursework (procedural).vcxproj", "{BDF255F4-1054-4889-8D37-AF01E526687C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GUI", "GUI\GUI.vcxproj", "{0C4293C0-774A-4579-966E-4E3473C3E001}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{BDF255F4-1054-4889-8D37-AF01E526687C}.Release|x64.Build.0 = Release|x64
 		{BDF255F4-1054-4889-8D37-AF01E526687C}.Release|x86.ActiveCfg = Release|Win32
 		{BDF255F4-1054-4889-8D37-AF01E526687C}.Release|x86.Build.0 = Release|Win32
+		{0C4293C0-774A-4579-966E-4E3473C3E001}.Debug|x64.ActiveCfg = Debug|x64
+		{0C4293C0-774A-4579-966E-4E3473C3E001}.Debug|x64.Build.0 = Debug|x64
+		{0C4293C0-774A-4579-966E-4E3473C3E001}.Debug|x86.ActiveCfg = Debug|Win32
+		{0C4293C0-774A-4579-966E-4E3473C3E001}.Debug|x86.Build.0 = Debug|Win32
+		{0C4293C0-774A-4579-966E-4E3473C3E001}.Release|x64.ActiveCfg = Release|x64
+		{0C4293C0-774A-4579-966E-4E3473C3E001}.Release|x64.Build.0 = Release|x64
+		{0C4293C0-774A-4579-966E-4E3473C3E001}.Release|x86.ActiveCfg = Release|Win32
+		{0C4293C0-774A-4579-966E-4E3473C3E001}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

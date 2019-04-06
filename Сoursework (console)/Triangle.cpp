@@ -1,6 +1,8 @@
 #include "Triangle.h"
 #include "Vector.h"
 
+using namespace ObjectOrientedProject;
+
 Triangle::Triangle(PointD b, PointD d, PointD e)
 {
 	height = d.GetX() - b.GetX();

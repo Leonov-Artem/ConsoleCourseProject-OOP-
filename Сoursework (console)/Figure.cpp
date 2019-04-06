@@ -6,6 +6,8 @@
 #include "Semicircle.h"
 #include <cmath>
 
+using namespace ObjectOrientedProject;
+
 Figure::Figure() 
 {
 	b = d = m = e = PointD(0, 0);

@@ -2,6 +2,8 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
+using namespace ObjectOrientedProject;
+
 Semicircle::Semicircle(PointD d, PointD m, PointD e)
 {
 	r = m.X - d.X;

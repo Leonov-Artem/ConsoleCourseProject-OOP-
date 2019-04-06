@@ -1,6 +1,8 @@
 #include "Rectangle.h"
 #include "Point.h"
 
+using namespace ObjectOrientedProject;
+
 void Rectangle::CoordinateDetermination(PointD b, PointD d, PointD m, PointD e)
 {
 	length = m.X - b.X;

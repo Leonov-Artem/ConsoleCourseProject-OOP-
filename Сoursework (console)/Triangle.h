@@ -1,30 +1,33 @@
 #pragma once
 #include "Point.h"
 
-class Triangle
+namespace ObjectOrientedProject
 {
-private:
-	PointD b, d, e;
-	double height, base;
+	class Triangle
+	{
+	private:
+		PointD b, d, e;
+		double height, base;
 
-public:
-	Triangle(PointD b, PointD d, PointD e);
-	
-	PointD GetB();
-	PointD GetD();
-	PointD GetE();
+	public:
+		Triangle(PointD b, PointD d, PointD e);
 
-	__declspec(property(get = GetB)) PointD B;
-	__declspec(property(get = GetD)) PointD D;
-	__declspec(property(get = GetE)) PointD E;
+		PointD GetB();
+		PointD GetD();
+		PointD GetE();
 
-	double GetHeight();
-	double GetBase();
+		__declspec(property(get = GetB)) PointD B;
+		__declspec(property(get = GetD)) PointD D;
+		__declspec(property(get = GetE)) PointD E;
 
-	__declspec(property(get = GetHeight)) double Height;
-	__declspec(property(get = GetBase)) double Base;
+		double GetHeight();
+		double GetBase();
 
-	bool PointInsideTriangle(PointD point);
+		__declspec(property(get = GetHeight)) double Height;
+		__declspec(property(get = GetBase)) double Base;
 
-	double Area();
-};
+		bool PointInsideTriangle(PointD point);
+
+		double Area();
+	};
+}

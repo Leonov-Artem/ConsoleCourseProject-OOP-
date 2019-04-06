@@ -1,31 +1,33 @@
 #pragma once
 #include "Point.h"
 
-class Semicircle
+namespace ObjectOrientedProject
 {
-private:
-	PointD d, m, e, centre;
-	double r;
+	class Semicircle
+	{
+	private:
+		PointD d, m, e, centre;
+		double r;
 
-	double SemicircleEquation(PointD point);
+		double SemicircleEquation(PointD point);
 
-public:
-	Semicircle(PointD d, PointD m, PointD e);
-	
-	PointD GetD();
-	PointD GetM();
-	PointD GetE();
-	PointD GetCentre();
-	double R();
+	public:
+		Semicircle(PointD d, PointD m, PointD e);
 
-	__declspec(property(get = GetD))		PointD D;
-	__declspec(property(get = GetM))		PointD M;
-	__declspec(property(get = GetE))		PointD E;
-	__declspec(property(get = GetCentre))	PointD Centre;
-	__declspec(property(get = R))			double Radius;
+		PointD GetD();
+		PointD GetM();
+		PointD GetE();
+		PointD GetCentre();
+		double R();
 
-	bool PointInsideSemicircle(PointD point);
+		__declspec(property(get = GetD))		PointD D;
+		__declspec(property(get = GetM))		PointD M;
+		__declspec(property(get = GetE))		PointD E;
+		__declspec(property(get = GetCentre))	PointD Centre;
+		__declspec(property(get = R))			double Radius;
 
-	double Area();
-};
+		bool PointInsideSemicircle(PointD point);
 
+		double Area();
+	};
+}
