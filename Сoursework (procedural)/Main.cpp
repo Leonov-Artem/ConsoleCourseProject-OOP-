@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Figure.h"
+#include "Figure2.h"
 
 double RelativeError(double exact_value, double approximation)
 {

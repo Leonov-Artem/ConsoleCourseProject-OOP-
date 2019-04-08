@@ -1,6 +1,6 @@
 #pragma once
 #include <random>
-#include "Point.h"
+#include "Point2.h"
 
 namespace ProceduralProject
 {

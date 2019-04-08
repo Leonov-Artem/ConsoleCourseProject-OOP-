@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Point.h"
-#include "Semicircle.h"
-#include "Triangle.h"
-#include "Rectangle.h"
-#include "RandomNumber.h"
+#include "Point2.h"
+#include "Semicircle2.h"
+#include "Triangle2.h"
+#include "Rectangle2.h"
+#include "RandomNumber2.h"
 
 namespace ProceduralProject
 {

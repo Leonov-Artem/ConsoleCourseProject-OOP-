@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{BDF255F4-1054-4889-8D37-AF01E526687C}</ProjectGuid>
     <RootNamespace>Сourseworkprocedural</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -118,13 +118,13 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Figure.h" />
-    <ClInclude Include="Point.h" />
-    <ClInclude Include="RandomNumber.h" />
-    <ClInclude Include="Rectangle.h" />
-    <ClInclude Include="Semicircle.h" />
-    <ClInclude Include="Triangle.h" />
-    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Figure2.h" />
+    <ClInclude Include="Point2.h" />
+    <ClInclude Include="RandomNumber2.h" />
+    <ClInclude Include="Rectangle2.h" />
+    <ClInclude Include="Semicircle2.h" />
+    <ClInclude Include="Triangle2.h" />
+    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

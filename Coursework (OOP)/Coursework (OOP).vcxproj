@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{F8D6A0C1-2983-4559-ACEC-BBAB94651E0F}</ProjectGuid>
     <RootNamespace>CourseworkOOP</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -115,23 +115,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Figure.cpp" />
-    <ClCompile Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Main.cpp" />
-    <ClCompile Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Point.cpp" />
-    <ClCompile Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\RandomNumber.cpp" />
-    <ClCompile Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Rectangle.cpp" />
-    <ClCompile Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Semicircle.cpp" />
-    <ClCompile Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Triangle.cpp" />
-    <ClCompile Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Vector.cpp" />
+    <ClCompile Include="Figure.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="RandomNumber.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Semicircle.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Figure.h" />
-    <ClInclude Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Point.h" />
-    <ClInclude Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\RandomNumber.h" />
-    <ClInclude Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Rectangle.h" />
-    <ClInclude Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Semicircle.h" />
-    <ClInclude Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Triangle.h" />
-    <ClInclude Include="C:\Users\Artem\Desktop\ConsoleCourseProject-OOP-\Сoursework (console)\Vector.h" />
+    <ClInclude Include="Figure.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="RandomNumber.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Semicircle.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

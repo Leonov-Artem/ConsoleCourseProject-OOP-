@@ -4,7 +4,7 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 //////////////////////////////
-#include "Point.h"
+#include "Point2.h"
 #include <cmath>
 
 namespace ProceduralProject

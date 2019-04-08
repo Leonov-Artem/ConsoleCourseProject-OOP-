@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Figure2.h"
 #include "Figure.h"
 
 namespace CppCLR_WinformsProjekt
@@ -53,6 +54,7 @@ namespace CppCLR_WinformsProjekt
 	private: System::Windows::Forms::Label^  label_exact_value;
 	private: System::Windows::Forms::Label^  label_monte_carlo;
 	private: System::Windows::Forms::Label^  labe_relative_error;
+	private: System::Windows::Forms::Button^  button_objectOrientedProject;
 
 	protected:
 
@@ -83,6 +85,7 @@ namespace CppCLR_WinformsProjekt
 			this->label_exact_value = (gcnew System::Windows::Forms::Label());
 			this->label_monte_carlo = (gcnew System::Windows::Forms::Label());
 			this->labe_relative_error = (gcnew System::Windows::Forms::Label());
+			this->button_objectOrientedProject = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -153,9 +156,9 @@ namespace CppCLR_WinformsProjekt
 			// 
 			this->button_Calculate->Location = System::Drawing::Point(21, 157);
 			this->button_Calculate->Name = L"button_Calculate";
-			this->button_Calculate->Size = System::Drawing::Size(106, 40);
+			this->button_Calculate->Size = System::Drawing::Size(118, 54);
 			this->button_Calculate->TabIndex = 8;
-			this->button_Calculate->Text = L"Выполнить";
+			this->button_Calculate->Text = L"Процедурный код";
 			this->button_Calculate->UseVisualStyleBackColor = true;
 			this->button_Calculate->Click += gcnew System::EventHandler(this, &Form1::button_Calculate_Click);
 			// 
@@ -199,11 +202,22 @@ namespace CppCLR_WinformsProjekt
 			this->labe_relative_error->Size = System::Drawing::Size(0, 17);
 			this->labe_relative_error->TabIndex = 13;
 			// 
+			// button_objectOrientedProject
+			// 
+			this->button_objectOrientedProject->Location = System::Drawing::Point(160, 157);
+			this->button_objectOrientedProject->Name = L"button_objectOrientedProject";
+			this->button_objectOrientedProject->Size = System::Drawing::Size(118, 54);
+			this->button_objectOrientedProject->TabIndex = 14;
+			this->button_objectOrientedProject->Text = L"ОО код";
+			this->button_objectOrientedProject->UseVisualStyleBackColor = true;
+			this->button_objectOrientedProject->Click += gcnew System::EventHandler(this, &Form1::button_objectOrientedProject_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(773, 446);
+			this->Controls->Add(this->button_objectOrientedProject);
 			this->Controls->Add(this->labe_relative_error);
 			this->Controls->Add(this->label_monte_carlo);
 			this->Controls->Add(this->label_exact_value);
@@ -241,6 +255,20 @@ namespace CppCLR_WinformsProjekt
 
 		double exact_area = figure.ExactAreaValue;
 		double monte_carclo = СalculateMonteCarlo(figure, 1e4);
+
+		label_exact_value->Text = "Точное значение площади: " + exact_area.ToString();
+		label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
+		labe_relative_error->Text = "Относительная погрешность: " + RelativeError(exact_area, monte_carclo).ToString() + "%";
+	}
+	private: System::Void button_objectOrientedProject_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		ObjectOrientedProject::PointD b(Double::Parse(textBox_PointB_x->Text), Double::Parse(textBox_PointB_y->Text));
+		ObjectOrientedProject::PointD d(Double::Parse(textBox_PointD_x->Text), Double::Parse(textBox_PointD_y->Text));
+
+		ObjectOrientedProject::Figure figure(b, d);
+
+		double exact_area = figure.ExactAreaValue();
+		double monte_carclo = figure.MonteCarloAlgorithm(1e4);
 
 		label_exact_value->Text = "Точное значение площади: " + exact_area.ToString();
 		label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
