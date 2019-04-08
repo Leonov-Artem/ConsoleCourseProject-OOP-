@@ -70,6 +70,12 @@ namespace CppCLR_Winforms
 	private: System::Windows::Forms::Label^  label_PointM;
 	private: System::Windows::Forms::Label^  label_PointE;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::TextBox^  textBox_PointM_x;
+	private: System::Windows::Forms::TextBox^  textBox_PointM_y;
+	private: System::Windows::Forms::Label^  label45;
+	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::TextBox^  textBox2;
 
 	protected:
 
@@ -108,6 +114,12 @@ namespace CppCLR_Winforms
 			this->label_PointM = (gcnew System::Windows::Forms::Label());
 			this->label_PointE = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->textBox_PointM_x = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_PointM_y = (gcnew System::Windows::Forms::TextBox());
+			this->label45 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -156,7 +168,7 @@ namespace CppCLR_Winforms
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(16, 82);
+			this->label4->Location = System::Drawing::Point(13, 81);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(64, 17);
 			this->label4->TabIndex = 5;
@@ -164,7 +176,7 @@ namespace CppCLR_Winforms
 			// 
 			// textBox_PointD_x
 			// 
-			this->textBox_PointD_x->Location = System::Drawing::Point(125, 78);
+			this->textBox_PointD_x->Location = System::Drawing::Point(125, 77);
 			this->textBox_PointD_x->Name = L"textBox_PointD_x";
 			this->textBox_PointD_x->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointD_x->TabIndex = 6;
@@ -179,7 +191,7 @@ namespace CppCLR_Winforms
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(19, 113);
+			this->label5->Location = System::Drawing::Point(17, 188);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(99, 17);
 			this->label5->TabIndex = 9;
@@ -187,7 +199,7 @@ namespace CppCLR_Winforms
 			// 
 			// textBox_amount_points
 			// 
-			this->textBox_amount_points->Location = System::Drawing::Point(124, 113);
+			this->textBox_amount_points->Location = System::Drawing::Point(124, 183);
 			this->textBox_amount_points->Name = L"textBox_amount_points";
 			this->textBox_amount_points->Size = System::Drawing::Size(110, 22);
 			this->textBox_amount_points->TabIndex = 10;
@@ -195,7 +207,7 @@ namespace CppCLR_Winforms
 			// label_exact_value
 			// 
 			this->label_exact_value->AutoSize = true;
-			this->label_exact_value->Location = System::Drawing::Point(25, 299);
+			this->label_exact_value->Location = System::Drawing::Point(25, 365);
 			this->label_exact_value->Name = L"label_exact_value";
 			this->label_exact_value->Size = System::Drawing::Size(0, 17);
 			this->label_exact_value->TabIndex = 11;
@@ -203,7 +215,7 @@ namespace CppCLR_Winforms
 			// label_monte_carlo
 			// 
 			this->label_monte_carlo->AutoSize = true;
-			this->label_monte_carlo->Location = System::Drawing::Point(25, 316);
+			this->label_monte_carlo->Location = System::Drawing::Point(25, 382);
 			this->label_monte_carlo->Name = L"label_monte_carlo";
 			this->label_monte_carlo->Size = System::Drawing::Size(0, 17);
 			this->label_monte_carlo->TabIndex = 12;
@@ -211,7 +223,7 @@ namespace CppCLR_Winforms
 			// label_relative_error
 			// 
 			this->label_relative_error->AutoSize = true;
-			this->label_relative_error->Location = System::Drawing::Point(25, 333);
+			this->label_relative_error->Location = System::Drawing::Point(25, 399);
 			this->label_relative_error->Name = L"label_relative_error";
 			this->label_relative_error->Size = System::Drawing::Size(0, 17);
 			this->label_relative_error->TabIndex = 13;
@@ -220,7 +232,7 @@ namespace CppCLR_Winforms
 			// 
 			this->groupBox1->Controls->Add(this->radioButton2);
 			this->groupBox1->Controls->Add(this->radioButton1);
-			this->groupBox1->Location = System::Drawing::Point(19, 145);
+			this->groupBox1->Location = System::Drawing::Point(19, 211);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(262, 84);
 			this->groupBox1->TabIndex = 15;
@@ -253,7 +265,7 @@ namespace CppCLR_Winforms
 			// 
 			// button_Сalculate
 			// 
-			this->button_Сalculate->Location = System::Drawing::Point(21, 240);
+			this->button_Сalculate->Location = System::Drawing::Point(21, 306);
 			this->button_Сalculate->Name = L"button_Сalculate";
 			this->button_Сalculate->Size = System::Drawing::Size(102, 44);
 			this->button_Сalculate->TabIndex = 16;
@@ -306,12 +318,64 @@ namespace CppCLR_Winforms
 			this->pictureBox1->TabIndex = 27;
 			this->pictureBox1->TabStop = false;
 			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(13, 113);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(67, 17);
+			this->label6->TabIndex = 28;
+			this->label6->Text = L"Точка m:";
+			// 
+			// textBox_PointM_x
+			// 
+			this->textBox_PointM_x->Location = System::Drawing::Point(125, 113);
+			this->textBox_PointM_x->Name = L"textBox_PointM_x";
+			this->textBox_PointM_x->Size = System::Drawing::Size(43, 22);
+			this->textBox_PointM_x->TabIndex = 29;
+			// 
+			// textBox_PointM_y
+			// 
+			this->textBox_PointM_y->Location = System::Drawing::Point(191, 113);
+			this->textBox_PointM_y->Name = L"textBox_PointM_y";
+			this->textBox_PointM_y->Size = System::Drawing::Size(43, 22);
+			this->textBox_PointM_y->TabIndex = 30;
+			// 
+			// label45
+			// 
+			this->label45->AutoSize = true;
+			this->label45->Location = System::Drawing::Point(16, 145);
+			this->label45->Name = L"label45";
+			this->label45->Size = System::Drawing::Size(64, 17);
+			this->label45->TabIndex = 31;
+			this->label45->Text = L"Точка е:";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(125, 145);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(43, 22);
+			this->textBox1->TabIndex = 32;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(191, 145);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(43, 22);
+			this->textBox2->TabIndex = 33;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(820, 446);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->label45);
+			this->Controls->Add(this->textBox_PointM_y);
+			this->Controls->Add(this->textBox_PointM_x);
+			this->Controls->Add(this->label6);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label_PointE);
 			this->Controls->Add(this->label_PointM);
