@@ -24,6 +24,11 @@ namespace CppCLR_Winforms
 			button_Сalculate->Enabled = false;
 
 			pictureBox1->Image = Image::FromFile("...\\Figure.png");
+
+			label_PointB->BringToFront();
+			label_PointD->BringToFront();
+			label_PointM->BringToFront();
+			label_PointE->BringToFront();
 		}
 
 	protected:
@@ -60,14 +65,11 @@ namespace CppCLR_Winforms
 	private: System::Windows::Forms::RadioButton^  radioButton2;
 	private: System::Windows::Forms::RadioButton^  radioButton1;
 	private: System::Windows::Forms::Button^  button_Сalculate;
-
-
-
-
-
+	private: System::Windows::Forms::Label^  label_PointB;
+	private: System::Windows::Forms::Label^  label_PointD;
+	private: System::Windows::Forms::Label^  label_PointM;
+	private: System::Windows::Forms::Label^  label_PointE;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
-
-
 
 	protected:
 
@@ -101,6 +103,10 @@ namespace CppCLR_Winforms
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->button_Сalculate = (gcnew System::Windows::Forms::Button());
+			this->label_PointB = (gcnew System::Windows::Forms::Label());
+			this->label_PointD = (gcnew System::Windows::Forms::Label());
+			this->label_PointM = (gcnew System::Windows::Forms::Label());
+			this->label_PointE = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -109,7 +115,7 @@ namespace CppCLR_Winforms
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(12, 46);
+			this->label1->Location = System::Drawing::Point(13, 50);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(64, 17);
 			this->label1->TabIndex = 0;
@@ -118,7 +124,7 @@ namespace CppCLR_Winforms
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(139, 5);
+			this->label2->Location = System::Drawing::Point(139, 26);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(17, 17);
 			this->label2->TabIndex = 1;
@@ -127,7 +133,7 @@ namespace CppCLR_Winforms
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(198, 5);
+			this->label3->Location = System::Drawing::Point(198, 26);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(17, 17);
 			this->label3->TabIndex = 2;
@@ -135,14 +141,14 @@ namespace CppCLR_Winforms
 			// 
 			// textBox_PointB_x
 			// 
-			this->textBox_PointB_x->Location = System::Drawing::Point(124, 42);
+			this->textBox_PointB_x->Location = System::Drawing::Point(125, 46);
 			this->textBox_PointB_x->Name = L"textBox_PointB_x";
 			this->textBox_PointB_x->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointB_x->TabIndex = 3;
 			// 
 			// textBox_PointB_y
 			// 
-			this->textBox_PointB_y->Location = System::Drawing::Point(190, 42);
+			this->textBox_PointB_y->Location = System::Drawing::Point(191, 46);
 			this->textBox_PointB_y->Name = L"textBox_PointB_y";
 			this->textBox_PointB_y->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointB_y->TabIndex = 4;
@@ -150,7 +156,7 @@ namespace CppCLR_Winforms
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(15, 78);
+			this->label4->Location = System::Drawing::Point(16, 82);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(64, 17);
 			this->label4->TabIndex = 5;
@@ -158,14 +164,14 @@ namespace CppCLR_Winforms
 			// 
 			// textBox_PointD_x
 			// 
-			this->textBox_PointD_x->Location = System::Drawing::Point(124, 74);
+			this->textBox_PointD_x->Location = System::Drawing::Point(125, 78);
 			this->textBox_PointD_x->Name = L"textBox_PointD_x";
 			this->textBox_PointD_x->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointD_x->TabIndex = 6;
 			// 
 			// textBox_PointD_y
 			// 
-			this->textBox_PointD_y->Location = System::Drawing::Point(190, 73);
+			this->textBox_PointD_y->Location = System::Drawing::Point(191, 77);
 			this->textBox_PointD_y->Name = L"textBox_PointD_y";
 			this->textBox_PointD_y->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointD_y->TabIndex = 7;
@@ -173,7 +179,7 @@ namespace CppCLR_Winforms
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(18, 109);
+			this->label5->Location = System::Drawing::Point(19, 113);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(99, 17);
 			this->label5->TabIndex = 9;
@@ -181,7 +187,7 @@ namespace CppCLR_Winforms
 			// 
 			// textBox_amount_points
 			// 
-			this->textBox_amount_points->Location = System::Drawing::Point(123, 109);
+			this->textBox_amount_points->Location = System::Drawing::Point(124, 113);
 			this->textBox_amount_points->Name = L"textBox_amount_points";
 			this->textBox_amount_points->Size = System::Drawing::Size(110, 22);
 			this->textBox_amount_points->TabIndex = 10;
@@ -214,9 +220,9 @@ namespace CppCLR_Winforms
 			// 
 			this->groupBox1->Controls->Add(this->radioButton2);
 			this->groupBox1->Controls->Add(this->radioButton1);
-			this->groupBox1->Location = System::Drawing::Point(18, 141);
+			this->groupBox1->Location = System::Drawing::Point(19, 145);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(262, 77);
+			this->groupBox1->Size = System::Drawing::Size(262, 84);
 			this->groupBox1->TabIndex = 15;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Тип приложения";
@@ -255,21 +261,62 @@ namespace CppCLR_Winforms
 			this->button_Сalculate->UseVisualStyleBackColor = true;
 			this->button_Сalculate->Click += gcnew System::EventHandler(this, &Form1::button_Сalculate_Click);
 			// 
+			// label_PointB
+			// 
+			this->label_PointB->AutoSize = true;
+			this->label_PointB->BackColor = System::Drawing::Color::White;
+			this->label_PointB->Location = System::Drawing::Point(395, 113);
+			this->label_PointB->Name = L"label_PointB";
+			this->label_PointB->Size = System::Drawing::Size(0, 17);
+			this->label_PointB->TabIndex = 23;
+			// 
+			// label_PointD
+			// 
+			this->label_PointD->AutoSize = true;
+			this->label_PointD->BackColor = System::Drawing::Color::White;
+			this->label_PointD->Location = System::Drawing::Point(686, 63);
+			this->label_PointD->Name = L"label_PointD";
+			this->label_PointD->Size = System::Drawing::Size(0, 17);
+			this->label_PointD->TabIndex = 24;
+			// 
+			// label_PointM
+			// 
+			this->label_PointM->AutoSize = true;
+			this->label_PointM->BackColor = System::Drawing::Color::White;
+			this->label_PointM->Location = System::Drawing::Point(775, 131);
+			this->label_PointM->Name = L"label_PointM";
+			this->label_PointM->Size = System::Drawing::Size(0, 17);
+			this->label_PointM->TabIndex = 25;
+			// 
+			// label_PointE
+			// 
+			this->label_PointE->AutoSize = true;
+			this->label_PointE->BackColor = System::Drawing::Color::White;
+			this->label_PointE->Location = System::Drawing::Point(689, 211);
+			this->label_PointE->Name = L"label_PointE";
+			this->label_PointE->Size = System::Drawing::Size(0, 17);
+			this->label_PointE->TabIndex = 26;
+			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(350, 35);
+			this->pictureBox1->Location = System::Drawing::Point(325, 46);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(443, 183);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox1->TabIndex = 22;
+			this->pictureBox1->TabIndex = 27;
 			this->pictureBox1->TabStop = false;
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(820, 446);
 			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->label_PointE);
+			this->Controls->Add(this->label_PointM);
+			this->Controls->Add(this->label_PointD);
+			this->Controls->Add(this->label_PointB);
 			this->Controls->Add(this->button_Сalculate);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->label_relative_error);
@@ -309,7 +356,7 @@ namespace CppCLR_Winforms
 			amount_points = Double::Parse(textBox_amount_points->Text);
 		else
 			amount_points = 1e4;
-
+		
 		double PointB_x = Double::Parse(textBox_PointB_x->Text);
 		double PointB_y = Double::Parse(textBox_PointB_y->Text);
 		double PointD_x = Double::Parse(textBox_PointD_x->Text);
@@ -322,6 +369,8 @@ namespace CppCLR_Winforms
 
 			ProceduralProject::Figure figure;
 			figure = CreateFigure(b, d);
+			
+			SetCoordinates(figure.b, figure.d, figure.m, figure.e);
 
 			double exact_area = Math::Round(figure.ExactAreaValue, 4);
 			double monte_carclo = Math::Round(СalculateMonteCarlo(figure, amount_points), 4);
@@ -336,6 +385,8 @@ namespace CppCLR_Winforms
 			ObjectOrientedProject::PointD d(PointD_x, PointD_y);
 			ObjectOrientedProject::Figure figure(b, d);
 
+			SetCoordinates(figure.B, figure.D, figure.M, figure.E);
+
 			double exact_area = Math::Round(figure.ExactAreaValue(), 4);
 			double monte_carclo = Math::Round(figure.MonteCarloAlgorithm(amount_points), 4);
 
@@ -348,6 +399,20 @@ namespace CppCLR_Winforms
 	{
 		if (textBox_PointB_x->Text != "" && textBox_PointB_y->Text != "" && textBox_PointD_x->Text != "" && textBox_PointD_y->Text != "")
 			button_Сalculate->Enabled = true;
+	}
+	private: void SetCoordinates(ObjectOrientedProject::PointD b, ObjectOrientedProject::PointD d, ObjectOrientedProject::PointD m, ObjectOrientedProject::PointD e)
+	{
+		label_PointB->Text = "(" + b.X.ToString() + "; " + b.Y.ToString() + ")";
+		label_PointD->Text = "(" + d.X.ToString() + "; " + d.Y.ToString() + ")";
+		label_PointM->Text = "(" + m.X.ToString() + "; " + m.Y.ToString() + ")";
+		label_PointE->Text = "(" + e.X.ToString() + "; " + e.Y.ToString() + ")";
+	}
+	private: void SetCoordinates(ProceduralProject::PointD b, ProceduralProject::PointD d, ProceduralProject::PointD m, ProceduralProject::PointD e)
+	{
+		label_PointB->Text ="(" + b.x.ToString() + "; " + b.y.ToString() + ")";
+		label_PointD->Text ="(" + d.x.ToString() + "; " + d.y.ToString() + ")";
+		label_PointM->Text ="(" + m.x.ToString() + "; " + m.y.ToString() + ")";
+		label_PointE->Text ="(" + e.x.ToString() + "; " + e.y.ToString() + ")";
 	}
 };
 }
