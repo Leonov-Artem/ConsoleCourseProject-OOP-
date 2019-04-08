@@ -37,9 +37,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CppCLR_WinformsProjekt.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -69,6 +66,9 @@
     </ClCompile>
     <ClCompile Include="..\Coursework (OOP)\Vector.cpp">
       <Filter>Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="CppCLR_Winforms.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

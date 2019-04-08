@@ -2,7 +2,7 @@
 #include "Figure2.h"
 #include "Figure.h"
 
-namespace CppCLR_WinformsProjekt
+namespace CppCLR_Winforms
 {
 
 	using namespace System;
@@ -21,6 +21,7 @@ namespace CppCLR_WinformsProjekt
 		Form1(void)
 		{
 			InitializeComponent();
+			button_Сalculate->Enabled = false;
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
@@ -48,13 +49,18 @@ namespace CppCLR_WinformsProjekt
 	private: System::Windows::Forms::TextBox^  textBox_PointD_y;
 
 
-	private: System::Windows::Forms::Button^  button_Calculate;
+
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::TextBox^  textBox_amount_points;
 	private: System::Windows::Forms::Label^  label_exact_value;
 	private: System::Windows::Forms::Label^  label_monte_carlo;
-	private: System::Windows::Forms::Label^  labe_relative_error;
-	private: System::Windows::Forms::Button^  button_objectOrientedProject;
+	private: System::Windows::Forms::Label^  label_relative_error;
+
+
+	private: System::Windows::Forms::GroupBox^  groupBox1;
+	private: System::Windows::Forms::RadioButton^  radioButton2;
+	private: System::Windows::Forms::RadioButton^  radioButton1;
+	private: System::Windows::Forms::Button^  button_Сalculate;
 
 	protected:
 
@@ -79,13 +85,16 @@ namespace CppCLR_WinformsProjekt
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->textBox_PointD_x = (gcnew System::Windows::Forms::TextBox());
 			this->textBox_PointD_y = (gcnew System::Windows::Forms::TextBox());
-			this->button_Calculate = (gcnew System::Windows::Forms::Button());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->textBox_amount_points = (gcnew System::Windows::Forms::TextBox());
 			this->label_exact_value = (gcnew System::Windows::Forms::Label());
 			this->label_monte_carlo = (gcnew System::Windows::Forms::Label());
-			this->labe_relative_error = (gcnew System::Windows::Forms::Label());
-			this->button_objectOrientedProject = (gcnew System::Windows::Forms::Button());
+			this->label_relative_error = (gcnew System::Windows::Forms::Label());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->button_Сalculate = (gcnew System::Windows::Forms::Button());
+			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -152,16 +161,6 @@ namespace CppCLR_WinformsProjekt
 			this->textBox_PointD_y->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointD_y->TabIndex = 7;
 			// 
-			// button_Calculate
-			// 
-			this->button_Calculate->Location = System::Drawing::Point(21, 157);
-			this->button_Calculate->Name = L"button_Calculate";
-			this->button_Calculate->Size = System::Drawing::Size(118, 54);
-			this->button_Calculate->TabIndex = 8;
-			this->button_Calculate->Text = L"Процедурный код";
-			this->button_Calculate->UseVisualStyleBackColor = true;
-			this->button_Calculate->Click += gcnew System::EventHandler(this, &Form1::button_Calculate_Click);
-			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
@@ -181,49 +180,87 @@ namespace CppCLR_WinformsProjekt
 			// label_exact_value
 			// 
 			this->label_exact_value->AutoSize = true;
-			this->label_exact_value->Location = System::Drawing::Point(21, 214);
+			this->label_exact_value->Location = System::Drawing::Point(18, 294);
 			this->label_exact_value->Name = L"label_exact_value";
-			this->label_exact_value->Size = System::Drawing::Size(0, 17);
+			this->label_exact_value->Size = System::Drawing::Size(16, 17);
 			this->label_exact_value->TabIndex = 11;
+			this->label_exact_value->Text = L"d";
 			// 
 			// label_monte_carlo
 			// 
 			this->label_monte_carlo->AutoSize = true;
-			this->label_monte_carlo->Location = System::Drawing::Point(21, 246);
+			this->label_monte_carlo->Location = System::Drawing::Point(18, 311);
 			this->label_monte_carlo->Name = L"label_monte_carlo";
-			this->label_monte_carlo->Size = System::Drawing::Size(0, 17);
+			this->label_monte_carlo->Size = System::Drawing::Size(16, 17);
 			this->label_monte_carlo->TabIndex = 12;
+			this->label_monte_carlo->Text = L"d";
 			// 
-			// labe_relative_error
+			// label_relative_error
 			// 
-			this->labe_relative_error->AutoSize = true;
-			this->labe_relative_error->Location = System::Drawing::Point(18, 263);
-			this->labe_relative_error->Name = L"labe_relative_error";
-			this->labe_relative_error->Size = System::Drawing::Size(0, 17);
-			this->labe_relative_error->TabIndex = 13;
+			this->label_relative_error->AutoSize = true;
+			this->label_relative_error->Location = System::Drawing::Point(18, 328);
+			this->label_relative_error->Name = L"label_relative_error";
+			this->label_relative_error->Size = System::Drawing::Size(16, 17);
+			this->label_relative_error->TabIndex = 13;
+			this->label_relative_error->Text = L"d";
 			// 
-			// button_objectOrientedProject
+			// groupBox1
 			// 
-			this->button_objectOrientedProject->Location = System::Drawing::Point(160, 157);
-			this->button_objectOrientedProject->Name = L"button_objectOrientedProject";
-			this->button_objectOrientedProject->Size = System::Drawing::Size(118, 54);
-			this->button_objectOrientedProject->TabIndex = 14;
-			this->button_objectOrientedProject->Text = L"ОО код";
-			this->button_objectOrientedProject->UseVisualStyleBackColor = true;
-			this->button_objectOrientedProject->Click += gcnew System::EventHandler(this, &Form1::button_objectOrientedProject_Click);
+			this->groupBox1->Controls->Add(this->radioButton2);
+			this->groupBox1->Controls->Add(this->radioButton1);
+			this->groupBox1->Location = System::Drawing::Point(21, 152);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(262, 77);
+			this->groupBox1->TabIndex = 15;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Тип приложения";
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Location = System::Drawing::Point(43, 49);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(218, 21);
+			this->radioButton2->TabIndex = 1;
+			this->radioButton2->TabStop = true;
+			this->radioButton2->Text = L"Объектно-ориентированное";
+			this->radioButton2->UseVisualStyleBackColor = true;
+			this->radioButton2->CheckedChanged += gcnew System::EventHandler(this, &Form1::radioButton2_CheckedChanged);
+			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(43, 21);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(118, 21);
+			this->radioButton1->TabIndex = 0;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"Процедурное";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			this->radioButton1->CheckedChanged += gcnew System::EventHandler(this, &Form1::radioButton2_CheckedChanged);
+			// 
+			// button_Сalculate
+			// 
+			this->button_Сalculate->Location = System::Drawing::Point(21, 235);
+			this->button_Сalculate->Name = L"button_Сalculate";
+			this->button_Сalculate->Size = System::Drawing::Size(102, 44);
+			this->button_Сalculate->TabIndex = 16;
+			this->button_Сalculate->Text = L"Выполнить";
+			this->button_Сalculate->UseVisualStyleBackColor = true;
+			this->button_Сalculate->Click += gcnew System::EventHandler(this, &Form1::button_Сalculate_Click);
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(773, 446);
-			this->Controls->Add(this->button_objectOrientedProject);
-			this->Controls->Add(this->labe_relative_error);
+			this->Controls->Add(this->button_Сalculate);
+			this->Controls->Add(this->groupBox1);
+			this->Controls->Add(this->label_relative_error);
 			this->Controls->Add(this->label_monte_carlo);
 			this->Controls->Add(this->label_exact_value);
 			this->Controls->Add(this->textBox_amount_points);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->button_Calculate);
 			this->Controls->Add(this->textBox_PointD_y);
 			this->Controls->Add(this->textBox_PointD_x);
 			this->Controls->Add(this->label4);
@@ -234,7 +271,10 @@ namespace CppCLR_WinformsProjekt
 			this->Controls->Add(this->label1);
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Form1";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Form1";
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -245,34 +285,52 @@ namespace CppCLR_WinformsProjekt
 	{
 		return abs(exact_value - approximation) / exact_value * 100;
 	}
-	private: System::Void button_Calculate_Click(System::Object^  sender, System::EventArgs^  e)
+	private: System::Void button_Сalculate_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
-		ProceduralProject::PointD b{ Double::Parse(textBox_PointB_x->Text), Double::Parse(textBox_PointB_y->Text) };
-		ProceduralProject::PointD d{ Double::Parse(textBox_PointD_x->Text), Double::Parse(textBox_PointD_y->Text) };
+		double amount_points;
+		if (textBox_amount_points->Text != "")
+			amount_points = Double::Parse(textBox_amount_points->Text);
+		else
+			amount_points = 1e4;
 
-		ProceduralProject::Figure figure;
-		figure = CreateFigure(b, d);
+		double PointB_x = Double::Parse(textBox_PointB_x->Text);
+		double PointB_y = Double::Parse(textBox_PointB_y->Text);
+		double PointD_x = Double::Parse(textBox_PointD_x->Text);
+		double PointD_y = Double::Parse(textBox_PointD_y->Text);
 
-		double exact_area = figure.ExactAreaValue;
-		double monte_carclo = СalculateMonteCarlo(figure, 1e4);
+		if (radioButton1->Checked)
+		{
+			ProceduralProject::PointD b{ PointB_x, PointB_y };
+			ProceduralProject::PointD d{ PointD_x, PointD_y };
 
-		label_exact_value->Text = "Точное значение площади: " + exact_area.ToString();
-		label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
-		labe_relative_error->Text = "Относительная погрешность: " + RelativeError(exact_area, monte_carclo).ToString() + "%";
+			ProceduralProject::Figure figure;
+			figure = CreateFigure(b, d);
+
+			double exact_area = Math::Round(figure.ExactAreaValue, 4);
+			double monte_carclo = Math::Round(СalculateMonteCarlo(figure, amount_points), 4);
+
+			label_exact_value->Text = "Точное значение площади: " + exact_area.ToString();
+			label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
+			label_relative_error->Text = "Относительная погрешность: " + Math::Round(RelativeError(exact_area, monte_carclo), 4).ToString() + "%";
+		}
+		else if (radioButton2->Checked)
+		{
+			ObjectOrientedProject::PointD b(PointB_x, PointB_y);
+			ObjectOrientedProject::PointD d(PointD_x, PointD_y);
+			ObjectOrientedProject::Figure figure(b, d);
+
+			double exact_area = Math::Round(figure.ExactAreaValue(), 4);
+			double monte_carclo = Math::Round(figure.MonteCarloAlgorithm(amount_points), 4);
+
+			label_exact_value->Text = "Точное значение площади: " + exact_area.ToString();
+			label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
+			label_relative_error->Text = "Относительная погрешность: " + Math::Round(RelativeError(exact_area, monte_carclo), 4).ToString() + "%";
+		}
 	}
-	private: System::Void button_objectOrientedProject_Click(System::Object^  sender, System::EventArgs^  e)
+	private: System::Void radioButton2_CheckedChanged(System::Object^  sender, System::EventArgs^  e) 
 	{
-		ObjectOrientedProject::PointD b(Double::Parse(textBox_PointB_x->Text), Double::Parse(textBox_PointB_y->Text));
-		ObjectOrientedProject::PointD d(Double::Parse(textBox_PointD_x->Text), Double::Parse(textBox_PointD_y->Text));
-
-		ObjectOrientedProject::Figure figure(b, d);
-
-		double exact_area = figure.ExactAreaValue();
-		double monte_carclo = figure.MonteCarloAlgorithm(1e4);
-
-		label_exact_value->Text = "Точное значение площади: " + exact_area.ToString();
-		label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
-		labe_relative_error->Text = "Относительная погрешность: " + RelativeError(exact_area, monte_carclo).ToString() + "%";
+		if (textBox_PointB_x->Text != "" && textBox_PointB_y->Text != "" && textBox_PointD_x->Text != "" && textBox_PointD_y->Text != "")
+			button_Сalculate->Enabled = true;
 	}
-	};
+};
 }
