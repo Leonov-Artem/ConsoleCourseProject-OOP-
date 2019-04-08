@@ -74,8 +74,10 @@ namespace CppCLR_Winforms
 	private: System::Windows::Forms::TextBox^  textBox_PointM_x;
 	private: System::Windows::Forms::TextBox^  textBox_PointM_y;
 	private: System::Windows::Forms::Label^  label45;
-	private: System::Windows::Forms::TextBox^  textBox1;
-	private: System::Windows::Forms::TextBox^  textBox2;
+	private: System::Windows::Forms::TextBox^  textBox_PointE_x;
+	private: System::Windows::Forms::TextBox^  textBox_PointE_y;
+
+
 
 	protected:
 
@@ -118,8 +120,8 @@ namespace CppCLR_Winforms
 			this->textBox_PointM_x = (gcnew System::Windows::Forms::TextBox());
 			this->textBox_PointM_y = (gcnew System::Windows::Forms::TextBox());
 			this->label45 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_PointE_x = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_PointE_y = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -350,19 +352,19 @@ namespace CppCLR_Winforms
 			this->label45->TabIndex = 31;
 			this->label45->Text = L"Точка е:";
 			// 
-			// textBox1
+			// textBox_PointE_x
 			// 
-			this->textBox1->Location = System::Drawing::Point(125, 145);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(43, 22);
-			this->textBox1->TabIndex = 32;
+			this->textBox_PointE_x->Location = System::Drawing::Point(125, 145);
+			this->textBox_PointE_x->Name = L"textBox_PointE_x";
+			this->textBox_PointE_x->Size = System::Drawing::Size(43, 22);
+			this->textBox_PointE_x->TabIndex = 32;
 			// 
-			// textBox2
+			// textBox_PointE_y
 			// 
-			this->textBox2->Location = System::Drawing::Point(191, 145);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(43, 22);
-			this->textBox2->TabIndex = 33;
+			this->textBox_PointE_y->Location = System::Drawing::Point(191, 145);
+			this->textBox_PointE_y->Name = L"textBox_PointE_y";
+			this->textBox_PointE_y->Size = System::Drawing::Size(43, 22);
+			this->textBox_PointE_y->TabIndex = 33;
 			// 
 			// Form1
 			// 
@@ -370,8 +372,8 @@ namespace CppCLR_Winforms
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(820, 446);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->textBox_PointE_y);
+			this->Controls->Add(this->textBox_PointE_x);
 			this->Controls->Add(this->label45);
 			this->Controls->Add(this->textBox_PointM_y);
 			this->Controls->Add(this->textBox_PointM_x);
@@ -461,7 +463,10 @@ namespace CppCLR_Winforms
 	}
 	private: System::Void radioButton2_CheckedChanged(System::Object^  sender, System::EventArgs^  e) 
 	{
-		if (textBox_PointB_x->Text != "" && textBox_PointB_y->Text != "" && textBox_PointD_x->Text != "" && textBox_PointD_y->Text != "")
+		if ( (textBox_PointB_x->Text != "" && textBox_PointB_y->Text != "" && textBox_PointD_x->Text != "" && textBox_PointD_y->Text != "") 
+			|| (textBox_PointB_x->Text != "" && textBox_PointB_y->Text != "" && textBox_PointE_x->Text != "" && textBox_PointE_y->Text != "")
+			|| (textBox_PointB_x->Text != "" && textBox_PointB_y->Text != "" && textBox_PointD_x->Text != "" && textBox_PointD_y->Text != "" && textBox_PointE_x->Text != "" && textBox_PointE_y->Text != "")
+			)
 			button_Сalculate->Enabled = true;
 	}
 	private: void SetCoordinates(ObjectOrientedProject::PointD b, ObjectOrientedProject::PointD d, ObjectOrientedProject::PointD m, ObjectOrientedProject::PointD e)
