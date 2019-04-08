@@ -22,9 +22,8 @@ namespace CppCLR_Winforms
 		{
 			InitializeComponent();
 			button_Сalculate->Enabled = false;
-			//
-			//TODO: Konstruktorcode hier hinzufügen.
-			//
+
+			pictureBox1->Image = Image::FromFile("...\\Figure.png");
 		}
 
 	protected:
@@ -62,6 +61,14 @@ namespace CppCLR_Winforms
 	private: System::Windows::Forms::RadioButton^  radioButton1;
 	private: System::Windows::Forms::Button^  button_Сalculate;
 
+
+
+
+
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
+
+
+
 	protected:
 
 	private:
@@ -94,13 +101,15 @@ namespace CppCLR_Winforms
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->button_Сalculate = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(12, 50);
+			this->label1->Location = System::Drawing::Point(12, 46);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(64, 17);
 			this->label1->TabIndex = 0;
@@ -109,7 +118,7 @@ namespace CppCLR_Winforms
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(139, 9);
+			this->label2->Location = System::Drawing::Point(139, 5);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(17, 17);
 			this->label2->TabIndex = 1;
@@ -118,7 +127,7 @@ namespace CppCLR_Winforms
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(198, 9);
+			this->label3->Location = System::Drawing::Point(198, 5);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(17, 17);
 			this->label3->TabIndex = 2;
@@ -126,14 +135,14 @@ namespace CppCLR_Winforms
 			// 
 			// textBox_PointB_x
 			// 
-			this->textBox_PointB_x->Location = System::Drawing::Point(124, 46);
+			this->textBox_PointB_x->Location = System::Drawing::Point(124, 42);
 			this->textBox_PointB_x->Name = L"textBox_PointB_x";
 			this->textBox_PointB_x->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointB_x->TabIndex = 3;
 			// 
 			// textBox_PointB_y
 			// 
-			this->textBox_PointB_y->Location = System::Drawing::Point(190, 46);
+			this->textBox_PointB_y->Location = System::Drawing::Point(190, 42);
 			this->textBox_PointB_y->Name = L"textBox_PointB_y";
 			this->textBox_PointB_y->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointB_y->TabIndex = 4;
@@ -141,7 +150,7 @@ namespace CppCLR_Winforms
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(15, 82);
+			this->label4->Location = System::Drawing::Point(15, 78);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(64, 17);
 			this->label4->TabIndex = 5;
@@ -149,14 +158,14 @@ namespace CppCLR_Winforms
 			// 
 			// textBox_PointD_x
 			// 
-			this->textBox_PointD_x->Location = System::Drawing::Point(124, 78);
+			this->textBox_PointD_x->Location = System::Drawing::Point(124, 74);
 			this->textBox_PointD_x->Name = L"textBox_PointD_x";
 			this->textBox_PointD_x->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointD_x->TabIndex = 6;
 			// 
 			// textBox_PointD_y
 			// 
-			this->textBox_PointD_y->Location = System::Drawing::Point(190, 77);
+			this->textBox_PointD_y->Location = System::Drawing::Point(190, 73);
 			this->textBox_PointD_y->Name = L"textBox_PointD_y";
 			this->textBox_PointD_y->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointD_y->TabIndex = 7;
@@ -164,7 +173,7 @@ namespace CppCLR_Winforms
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(18, 113);
+			this->label5->Location = System::Drawing::Point(18, 109);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(99, 17);
 			this->label5->TabIndex = 9;
@@ -172,7 +181,7 @@ namespace CppCLR_Winforms
 			// 
 			// textBox_amount_points
 			// 
-			this->textBox_amount_points->Location = System::Drawing::Point(123, 113);
+			this->textBox_amount_points->Location = System::Drawing::Point(123, 109);
 			this->textBox_amount_points->Name = L"textBox_amount_points";
 			this->textBox_amount_points->Size = System::Drawing::Size(110, 22);
 			this->textBox_amount_points->TabIndex = 10;
@@ -180,35 +189,32 @@ namespace CppCLR_Winforms
 			// label_exact_value
 			// 
 			this->label_exact_value->AutoSize = true;
-			this->label_exact_value->Location = System::Drawing::Point(18, 294);
+			this->label_exact_value->Location = System::Drawing::Point(25, 299);
 			this->label_exact_value->Name = L"label_exact_value";
-			this->label_exact_value->Size = System::Drawing::Size(16, 17);
+			this->label_exact_value->Size = System::Drawing::Size(0, 17);
 			this->label_exact_value->TabIndex = 11;
-			this->label_exact_value->Text = L"d";
 			// 
 			// label_monte_carlo
 			// 
 			this->label_monte_carlo->AutoSize = true;
-			this->label_monte_carlo->Location = System::Drawing::Point(18, 311);
+			this->label_monte_carlo->Location = System::Drawing::Point(25, 316);
 			this->label_monte_carlo->Name = L"label_monte_carlo";
-			this->label_monte_carlo->Size = System::Drawing::Size(16, 17);
+			this->label_monte_carlo->Size = System::Drawing::Size(0, 17);
 			this->label_monte_carlo->TabIndex = 12;
-			this->label_monte_carlo->Text = L"d";
 			// 
 			// label_relative_error
 			// 
 			this->label_relative_error->AutoSize = true;
-			this->label_relative_error->Location = System::Drawing::Point(18, 328);
+			this->label_relative_error->Location = System::Drawing::Point(25, 333);
 			this->label_relative_error->Name = L"label_relative_error";
-			this->label_relative_error->Size = System::Drawing::Size(16, 17);
+			this->label_relative_error->Size = System::Drawing::Size(0, 17);
 			this->label_relative_error->TabIndex = 13;
-			this->label_relative_error->Text = L"d";
 			// 
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->radioButton2);
 			this->groupBox1->Controls->Add(this->radioButton1);
-			this->groupBox1->Location = System::Drawing::Point(21, 152);
+			this->groupBox1->Location = System::Drawing::Point(18, 141);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(262, 77);
 			this->groupBox1->TabIndex = 15;
@@ -241,7 +247,7 @@ namespace CppCLR_Winforms
 			// 
 			// button_Сalculate
 			// 
-			this->button_Сalculate->Location = System::Drawing::Point(21, 235);
+			this->button_Сalculate->Location = System::Drawing::Point(21, 240);
 			this->button_Сalculate->Name = L"button_Сalculate";
 			this->button_Сalculate->Size = System::Drawing::Size(102, 44);
 			this->button_Сalculate->TabIndex = 16;
@@ -249,11 +255,21 @@ namespace CppCLR_Winforms
 			this->button_Сalculate->UseVisualStyleBackColor = true;
 			this->button_Сalculate->Click += gcnew System::EventHandler(this, &Form1::button_Сalculate_Click);
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(350, 35);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(443, 183);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 22;
+			this->pictureBox1->TabStop = false;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(773, 446);
+			this->ClientSize = System::Drawing::Size(820, 446);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button_Сalculate);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->label_relative_error);
@@ -275,6 +291,7 @@ namespace CppCLR_Winforms
 			this->Text = L"Form1";
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
