@@ -415,6 +415,37 @@ namespace CppCLR_Winforms
 	{
 		return abs(exact_value - approximation) / exact_value * 100;
 	}
+
+	private: void DisplayResult(double exact_area, double monte_carclo)
+	{
+		label_exact_value->Text = "Точное значение площади: " + exact_area.ToString();
+		label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
+		label_relative_error->Text = "Относительная погрешность: " + Math::Round(RelativeError(exact_area, monte_carclo), 4).ToString() + "%";
+	}
+	private: void ExecuteProceduralCode(ProceduralProject::PointD b, ProceduralProject::PointD d, double amount_points)
+	{
+		ProceduralProject::Figure figure;
+		figure = CreateFigure(b, d);
+
+		SetCoordinates(figure.b, figure.d, figure.m, figure.e);
+
+		double exact_area = Math::Round(figure.ExactAreaValue, 4);
+		double monte_carclo = Math::Round(СalculateMonteCarlo(figure, amount_points), 4);
+
+		DisplayResult(exact_area, monte_carclo);
+	}
+	private: void ExecuteObjectOrientedCode(ObjectOrientedProject::PointD b, ObjectOrientedProject::PointD d, double amount_points)
+	{
+		ObjectOrientedProject::Figure figure(b, d);
+
+		SetCoordinates(figure.B, figure.D, figure.M, figure.E);
+
+		double exact_area = Math::Round(figure.ExactAreaValue(), 4);
+		double monte_carclo = Math::Round(figure.MonteCarloAlgorithm(amount_points), 4);
+
+		DisplayResult(exact_area, monte_carclo);
+	}
+
 	private: System::Void button_Сalculate_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
 		double amount_points;
@@ -423,42 +454,36 @@ namespace CppCLR_Winforms
 		else
 			amount_points = 1e4;
 		
+		//////////////////////////////////////////////////////////////////////
 		double PointB_x = Double::Parse(textBox_PointB_x->Text);
 		double PointB_y = Double::Parse(textBox_PointB_y->Text);
-		double PointD_x = Double::Parse(textBox_PointD_x->Text);
-		double PointD_y = Double::Parse(textBox_PointD_y->Text);
+		double PointD_x, PointD_y;
+
+		if (textBox_PointD_x->Text != "" && textBox_PointD_y->Text != "")
+		{
+			PointD_x = Double::Parse(textBox_PointD_x->Text);
+			PointD_y = Double::Parse(textBox_PointD_y->Text);
+		}
+		else if (textBox_PointE_x->Text != "" && textBox_PointE_y->Text != "")
+		{
+			PointD_x = Double::Parse(textBox_PointE_x->Text);
+			PointD_y = Double::Parse(textBox_PointE_y->Text);
+		}
+		//////////////////////////////////////////////////////////////////////
 
 		if (radioButton1->Checked)
 		{
 			ProceduralProject::PointD b{ PointB_x, PointB_y };
 			ProceduralProject::PointD d{ PointD_x, PointD_y };
 
-			ProceduralProject::Figure figure;
-			figure = CreateFigure(b, d);
-			
-			SetCoordinates(figure.b, figure.d, figure.m, figure.e);
-
-			double exact_area = Math::Round(figure.ExactAreaValue, 4);
-			double monte_carclo = Math::Round(СalculateMonteCarlo(figure, amount_points), 4);
-
-			label_exact_value->Text = "Точное значение площади: " + exact_area.ToString();
-			label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
-			label_relative_error->Text = "Относительная погрешность: " + Math::Round(RelativeError(exact_area, monte_carclo), 4).ToString() + "%";
+			ExecuteProceduralCode(b, d, amount_points);
 		}
 		else if (radioButton2->Checked)
 		{
 			ObjectOrientedProject::PointD b(PointB_x, PointB_y);
 			ObjectOrientedProject::PointD d(PointD_x, PointD_y);
-			ObjectOrientedProject::Figure figure(b, d);
 
-			SetCoordinates(figure.B, figure.D, figure.M, figure.E);
-
-			double exact_area = Math::Round(figure.ExactAreaValue(), 4);
-			double monte_carclo = Math::Round(figure.MonteCarloAlgorithm(amount_points), 4);
-
-			label_exact_value->Text = "Точное значение площади: " + exact_area.ToString();
-			label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
-			label_relative_error->Text = "Относительная погрешность: " + Math::Round(RelativeError(exact_area, monte_carclo), 4).ToString() + "%";
+			ExecuteObjectOrientedCode(b, d, amount_points);
 		}
 	}
 	private: System::Void radioButton2_CheckedChanged(System::Object^  sender, System::EventArgs^  e) 
@@ -469,6 +494,7 @@ namespace CppCLR_Winforms
 			)
 			button_Сalculate->Enabled = true;
 	}
+
 	private: void SetCoordinates(ObjectOrientedProject::PointD b, ObjectOrientedProject::PointD d, ObjectOrientedProject::PointD m, ObjectOrientedProject::PointD e)
 	{
 		label_PointB->Text = "(" + b.X.ToString() + "; " + b.Y.ToString() + ")";
