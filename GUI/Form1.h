@@ -415,6 +415,14 @@ namespace CppCLR_Winforms
 	{
 		return abs(exact_value - approximation) / exact_value * 100;
 	}
+	private: double GetAmountPoints()
+	{
+		double amount_points;
+		if (textBox_amount_points->Text != "")
+			amount_points = Double::Parse(textBox_amount_points->Text);
+		else
+			amount_points = 1e4;
+	}
 
 	private: void DisplayResult(double exact_area, double monte_carclo)
 	{
@@ -448,11 +456,7 @@ namespace CppCLR_Winforms
 
 	private: System::Void button_Сalculate_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
-		double amount_points;
-		if (textBox_amount_points->Text != "")
-			amount_points = Double::Parse(textBox_amount_points->Text);
-		else
-			amount_points = 1e4;
+		double amount_points = GetAmountPoints();
 		
 		//////////////////////////////////////////////////////////////////////
 		double PointB_x = Double::Parse(textBox_PointB_x->Text);
