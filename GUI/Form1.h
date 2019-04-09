@@ -379,6 +379,7 @@ namespace CppCLR_Winforms
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(820, 446);
 			this->Controls->Add(this->textBox_PointE_y);
@@ -449,6 +450,22 @@ namespace CppCLR_Winforms
 		label_PointM->Text = "(" + m.x.ToString() + "; " + m.y.ToString() + ")";
 		label_PointE->Text = "(" + e.x.ToString() + "; " + e.y.ToString() + ")";
 	}
+	private: void GetCoordinates(double& PointB_x, double& PointB_y, double& PointD_x, double& PointD_y)
+	{
+		PointB_x = Double::Parse(textBox_PointB_x->Text);
+		PointB_y = Double::Parse(textBox_PointB_y->Text);
+
+		if (textBox_PointD_x->Text != "" && textBox_PointD_y->Text != "")
+		{
+			PointD_x = Double::Parse(textBox_PointD_x->Text);
+			PointD_y = Double::Parse(textBox_PointD_y->Text);
+		}
+		else if (textBox_PointE_x->Text != "" && textBox_PointE_y->Text != "")
+		{
+			PointD_x = Double::Parse(textBox_PointE_x->Text);
+			PointD_y = Double::Parse(textBox_PointE_y->Text);
+		}
+	}
 
 	private: void DisplayResult(double exact_area, double monte_carclo)
 	{
@@ -479,27 +496,13 @@ namespace CppCLR_Winforms
 
 		DisplayResult(exact_area, monte_carclo);
 	}
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 	private: System::Void button_Сalculate_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
 		double amount_points = GetAmountPoints();
 		
-		//////////////////////////////////////////////////////////////////////
-		double PointB_x = Double::Parse(textBox_PointB_x->Text);
-		double PointB_y = Double::Parse(textBox_PointB_y->Text);
-		double PointD_x, PointD_y;
-
-		if (textBox_PointD_x->Text != "" && textBox_PointD_y->Text != "")
-		{
-			PointD_x = Double::Parse(textBox_PointD_x->Text);
-			PointD_y = Double::Parse(textBox_PointD_y->Text);
-		}
-		else if (textBox_PointE_x->Text != "" && textBox_PointE_y->Text != "")
-		{
-			PointD_x = Double::Parse(textBox_PointE_x->Text);
-			PointD_y = Double::Parse(textBox_PointE_y->Text);
-		}
-		//////////////////////////////////////////////////////////////////////
+		double PointB_x, PointB_y, PointD_x, PointD_y;
+		GetCoordinates(PointB_x, PointB_y, PointD_x, PointD_y);
 
 		if (radioButton1->Checked)
 		{
