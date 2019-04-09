@@ -159,6 +159,7 @@ namespace CppCLR_Winforms
 			this->textBox_PointB_x->Name = L"textBox_PointB_x";
 			this->textBox_PointB_x->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointB_x->TabIndex = 3;
+			this->textBox_PointB_x->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::textBox_PointE_y_KeyPress);
 			// 
 			// textBox_PointB_y
 			// 
@@ -166,6 +167,7 @@ namespace CppCLR_Winforms
 			this->textBox_PointB_y->Name = L"textBox_PointB_y";
 			this->textBox_PointB_y->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointB_y->TabIndex = 4;
+			this->textBox_PointB_y->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::textBox_PointE_y_KeyPress);
 			// 
 			// label4
 			// 
@@ -182,6 +184,7 @@ namespace CppCLR_Winforms
 			this->textBox_PointD_x->Name = L"textBox_PointD_x";
 			this->textBox_PointD_x->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointD_x->TabIndex = 6;
+			this->textBox_PointD_x->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::textBox_PointE_y_KeyPress);
 			// 
 			// textBox_PointD_y
 			// 
@@ -189,6 +192,7 @@ namespace CppCLR_Winforms
 			this->textBox_PointD_y->Name = L"textBox_PointD_y";
 			this->textBox_PointD_y->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointD_y->TabIndex = 7;
+			this->textBox_PointD_y->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::textBox_PointE_y_KeyPress);
 			// 
 			// label5
 			// 
@@ -205,6 +209,7 @@ namespace CppCLR_Winforms
 			this->textBox_amount_points->Name = L"textBox_amount_points";
 			this->textBox_amount_points->Size = System::Drawing::Size(110, 22);
 			this->textBox_amount_points->TabIndex = 10;
+			this->textBox_amount_points->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::textBox_amount_points_KeyPress);
 			// 
 			// label_exact_value
 			// 
@@ -335,6 +340,7 @@ namespace CppCLR_Winforms
 			this->textBox_PointM_x->Name = L"textBox_PointM_x";
 			this->textBox_PointM_x->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointM_x->TabIndex = 29;
+			this->textBox_PointM_x->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::textBox_PointE_y_KeyPress);
 			// 
 			// textBox_PointM_y
 			// 
@@ -342,6 +348,7 @@ namespace CppCLR_Winforms
 			this->textBox_PointM_y->Name = L"textBox_PointM_y";
 			this->textBox_PointM_y->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointM_y->TabIndex = 30;
+			this->textBox_PointM_y->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::textBox_PointE_y_KeyPress);
 			// 
 			// label45
 			// 
@@ -358,6 +365,7 @@ namespace CppCLR_Winforms
 			this->textBox_PointE_x->Name = L"textBox_PointE_x";
 			this->textBox_PointE_x->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointE_x->TabIndex = 32;
+			this->textBox_PointE_x->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::textBox_PointE_y_KeyPress);
 			// 
 			// textBox_PointE_y
 			// 
@@ -365,6 +373,7 @@ namespace CppCLR_Winforms
 			this->textBox_PointE_y->Name = L"textBox_PointE_y";
 			this->textBox_PointE_y->Size = System::Drawing::Size(43, 22);
 			this->textBox_PointE_y->TabIndex = 33;
+			this->textBox_PointE_y->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::textBox_PointE_y_KeyPress);
 			// 
 			// Form1
 			// 
@@ -410,7 +419,7 @@ namespace CppCLR_Winforms
 
 		}
 #pragma endregion
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 	private: double RelativeError(double exact_value, double approximation)
 	{
 		return abs(exact_value - approximation) / exact_value * 100;
@@ -422,6 +431,23 @@ namespace CppCLR_Winforms
 			amount_points = Double::Parse(textBox_amount_points->Text);
 		else
 			amount_points = 1e4;
+
+		return amount_points;
+	}
+
+	private: void SetCoordinates(ObjectOrientedProject::PointD b, ObjectOrientedProject::PointD d, ObjectOrientedProject::PointD m, ObjectOrientedProject::PointD e)
+	{
+		label_PointB->Text = "(" + b.X.ToString() + "; " + b.Y.ToString() + ")";
+		label_PointD->Text = "(" + d.X.ToString() + "; " + d.Y.ToString() + ")";
+		label_PointM->Text = "(" + m.X.ToString() + "; " + m.Y.ToString() + ")";
+		label_PointE->Text = "(" + e.X.ToString() + "; " + e.Y.ToString() + ")";
+	}
+	private: void SetCoordinates(ProceduralProject::PointD b, ProceduralProject::PointD d, ProceduralProject::PointD m, ProceduralProject::PointD e)
+	{
+		label_PointB->Text = "(" + b.x.ToString() + "; " + b.y.ToString() + ")";
+		label_PointD->Text = "(" + d.x.ToString() + "; " + d.y.ToString() + ")";
+		label_PointM->Text = "(" + m.x.ToString() + "; " + m.y.ToString() + ")";
+		label_PointE->Text = "(" + e.x.ToString() + "; " + e.y.ToString() + ")";
 	}
 
 	private: void DisplayResult(double exact_area, double monte_carclo)
@@ -498,20 +524,21 @@ namespace CppCLR_Winforms
 			)
 			button_Сalculate->Enabled = true;
 	}
-
-	private: void SetCoordinates(ObjectOrientedProject::PointD b, ObjectOrientedProject::PointD d, ObjectOrientedProject::PointD m, ObjectOrientedProject::PointD e)
+	private: System::Void textBox_PointE_y_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e)
 	{
-		label_PointB->Text = "(" + b.X.ToString() + "; " + b.Y.ToString() + ")";
-		label_PointD->Text = "(" + d.X.ToString() + "; " + d.Y.ToString() + ")";
-		label_PointM->Text = "(" + m.X.ToString() + "; " + m.Y.ToString() + ")";
-		label_PointE->Text = "(" + e.X.ToString() + "; " + e.Y.ToString() + ")";
+		char number = e->KeyChar;
+		if (!Char::IsDigit(number) && number != 8 && number != 44 && number != 45) // цифры, клавиша BackSpace и запятая
+		{
+			e->Handled = true;
+		}
 	}
-	private: void SetCoordinates(ProceduralProject::PointD b, ProceduralProject::PointD d, ProceduralProject::PointD m, ProceduralProject::PointD e)
+	private: System::Void textBox_amount_points_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e)
 	{
-		label_PointB->Text ="(" + b.x.ToString() + "; " + b.y.ToString() + ")";
-		label_PointD->Text ="(" + d.x.ToString() + "; " + d.y.ToString() + ")";
-		label_PointM->Text ="(" + m.x.ToString() + "; " + m.y.ToString() + ")";
-		label_PointE->Text ="(" + e.x.ToString() + "; " + e.y.ToString() + ")";
+		char number = e->KeyChar;
+		if (!Char::IsDigit(number) && number != 8) // цифры и клавиша BackSpace
+		{
+			e->Handled = true;
+		}
 	}
 };
 }
