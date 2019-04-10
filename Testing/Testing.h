@@ -7,6 +7,7 @@ private:
 	static void ExecuteObjectOrientedCode(double sample_size, int amount_tests);
 
 	static void DisplayTableHeader();
+	static void DisplayTableRow(int row, double value);
 	static void DisplayTableFooter(double average_time);
 public:
 	static void DisplayTestTableProceduralApplication(double sample_size, int amount_tests);

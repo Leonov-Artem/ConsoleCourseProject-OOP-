@@ -69,6 +69,10 @@ void Testing::DisplayTableHeader()
 	tablePrinter.AddColumn("Время (с.)", 10);
 	tablePrinter.PrintHeader();
 }
+void Testing::DisplayTableRow(int row, double value)
+{
+	tablePrinter << row << value;
+}
 void Testing::DisplayTableFooter(double average_time)
 {
 	tablePrinter.PrintFooter();
@@ -87,7 +91,7 @@ void Testing::DisplayTestTableProceduralApplication(double sample_size, int amou
 		unsigned int end_time = clock();
 		average_time += end_time - start_time;
 		
-		tablePrinter << i + 1 << (end_time - start_time) / 1000.0;
+		DisplayTableRow(i + 1, (end_time - start_time) / 1000.0);
 	}
 
 	DisplayTableFooter(average_time / amount_tests / 1000.0);
@@ -102,8 +106,9 @@ void Testing::DisplayTestTableObjectOrientedApplication(double sample_size, int 
 		unsigned int start_time = clock();
 		ExecuteObjectOrientedCode(sample_size, amount_tests);
 		unsigned int end_time = clock();
-
 		average_time += end_time - start_time;
+
+		DisplayTableRow(i + 1, (end_time - start_time) / 1000.0);
 	}
 
 	DisplayTableFooter(average_time / amount_tests / 1000.0);
