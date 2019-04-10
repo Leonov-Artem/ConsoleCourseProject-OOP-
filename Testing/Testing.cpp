@@ -5,6 +5,8 @@
 #include <ctime>
 
 using namespace System;
+using namespace bprinter;
+TablePrinter tp(&std::cout);
 
 // clock() - замеряет время в миллисекундах
 
@@ -61,16 +63,23 @@ double Testing::ObjectOrientedApplication(double sample_size, int amount_tests)
 	return average_time / amount_tests / 1000.0;
 }
 
-void Testing::DisplayTestTableProceduralApplication(double sample_size, int amount_tests)
+void Testing::DisplayTableHeader()
 {
-	using namespace bprinter;
-	TablePrinter tp(&std::cout);
 	tp.AddColumn("Номер теста", 11);
 	tp.AddColumn("Время (с.)", 10);
 	tp.PrintHeader();
+}
+void Testing::DisplayTableFooter(double average_time)
+{
+	tp.PrintFooter();
+	tp << "Ср. время:" << average_time;
+}
+
+void Testing::DisplayTestTableProceduralApplication(double sample_size, int amount_tests)
+{
+	DisplayTableHeader();
 
 	unsigned int average_time = 0;
-
 	for (int i = 0; i < amount_tests; i++)
 	{
 		unsigned int start_time = clock();
@@ -81,13 +90,13 @@ void Testing::DisplayTestTableProceduralApplication(double sample_size, int amou
 		tp << i + 1 << (end_time - start_time) / 1000.0;
 	}
 
-	tp.PrintFooter();
-	tp << "Ср. время:" << average_time / amount_tests / 1000.0;
+	DisplayTebleFooter(average_time / amount_tests / 1000.0);
 }
 void Testing::DisplayTestTableObjectOrientedApplication(double sample_size, int amount_tests)
 {
-	unsigned int average_time = 0;
+	DisplayTableHeader();
 
+	unsigned int average_time = 0;
 	for (int i = 0; i < amount_tests; i++)
 	{
 		unsigned int start_time = clock();
@@ -97,5 +106,5 @@ void Testing::DisplayTestTableObjectOrientedApplication(double sample_size, int 
 		average_time += end_time - start_time;
 	}
 
-	//return average_time / amount_tests / 1000.0;
+	DisplayTebleFooter(average_time / amount_tests / 1000.0);
 }
