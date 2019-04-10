@@ -9,6 +9,8 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
+	Testing::DisplayTestTableProceduralApplication(1e3, 10);
+
 	system("pause");
 	return 0;
 }
