@@ -1,6 +1,5 @@
 #include <istream>
-#include "Figure.h"
-#include "Figure2.h"
+#include "Testing.h"
 
 int main()
 {
