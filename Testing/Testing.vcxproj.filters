@@ -45,9 +45,18 @@
     <ClCompile Include="..\Coursework (OOP)\Vector.cpp">
       <Filter>Geom</Filter>
     </ClCompile>
+    <ClCompile Include="table_printer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Testing.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="table_printer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="table_printer.tpp.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

@@ -124,9 +124,12 @@
     <ClCompile Include="..\Coursework (OOP)\Triangle.cpp" />
     <ClCompile Include="..\Coursework (OOP)\Vector.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="table_printer.cpp" />
     <ClCompile Include="Testing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="table_printer.h" />
+    <ClInclude Include="table_printer.tpp.h" />
     <ClInclude Include="Testing.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,6 +1,7 @@
 #include "Testing.h"
 #include "Figure.h"
 #include "Figure2.h"
+#include "table_printer.h"
 #include <ctime>
 
 // clock() - замеряет время в миллисекундах
