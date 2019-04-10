@@ -46,6 +46,9 @@
     <ClCompile Include="Form1.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="CppCLR_Winforms.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
     <ClCompile Include="..\Coursework (OOP)\Figure.cpp">
       <Filter>Geom</Filter>
     </ClCompile>
@@ -67,13 +70,15 @@
     <ClCompile Include="..\Coursework (OOP)\Vector.cpp">
       <Filter>Geom</Filter>
     </ClCompile>
-    <ClCompile Include="CppCLR_Winforms.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

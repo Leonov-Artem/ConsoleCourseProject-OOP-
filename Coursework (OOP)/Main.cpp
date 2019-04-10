@@ -4,10 +4,6 @@
 #include "Vector.h"
 #include "Figure.h"
 
-using std::cout;
-using std::endl;
-using namespace ObjectOrientedProject;
-
 double RelativeError(double exact_value, double approximation)
 {
 	return abs(exact_value - approximation) / exact_value * 100;
@@ -15,6 +11,10 @@ double RelativeError(double exact_value, double approximation)
 
 int main()
 {
+	using std::cout;
+	using std::endl;
+	using namespace ObjectOrientedProject;
+
 	setlocale(LC_CTYPE, "");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);

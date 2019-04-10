@@ -27,7 +27,7 @@ double Testing::ProceduralApplication(double sample_size, int amount_tests)
 		average_time += end_time - start_time;
 	}
 
-	return average_time / amount_tests;
+	return average_time / amount_tests / 1000.0;
 }
 double Testing::ObjectOrientedApplication(double sample_size, int amount_tests)
 {
@@ -48,5 +48,5 @@ double Testing::ObjectOrientedApplication(double sample_size, int amount_tests)
 		average_time += end_time - start_time;
 	}
 
-	return average_time / amount_tests;
+	return average_time / amount_tests / 1000.0;
 }

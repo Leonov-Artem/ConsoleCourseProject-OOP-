@@ -116,6 +116,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Coursework (OOP)\Figure.cpp" />
+    <ClCompile Include="..\Coursework (OOP)\Point.cpp" />
+    <ClCompile Include="..\Coursework (OOP)\RandomNumber.cpp" />
+    <ClCompile Include="..\Coursework (OOP)\Rectangle.cpp" />
+    <ClCompile Include="..\Coursework (OOP)\Semicircle.cpp" />
+    <ClCompile Include="..\Coursework (OOP)\Triangle.cpp" />
+    <ClCompile Include="..\Coursework (OOP)\Vector.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Testing.cpp" />
   </ItemGroup>

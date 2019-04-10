@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Geom">
+      <UniqueIdentifier>{67776185-c13d-40d9-8570-f5cfd8cab4a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -20,6 +23,27 @@
     </ClCompile>
     <ClCompile Include="Testing.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Coursework (OOP)\Figure.cpp">
+      <Filter>Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Coursework (OOP)\Point.cpp">
+      <Filter>Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Coursework (OOP)\RandomNumber.cpp">
+      <Filter>Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Coursework (OOP)\Rectangle.cpp">
+      <Filter>Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Coursework (OOP)\Semicircle.cpp">
+      <Filter>Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Coursework (OOP)\Triangle.cpp">
+      <Filter>Geom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Coursework (OOP)\Vector.cpp">
+      <Filter>Geom</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
