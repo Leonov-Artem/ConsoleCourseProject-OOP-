@@ -9,7 +9,8 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Testing::DisplayTestTableProceduralApplication(1e3, 10);
+	cout << "Таблица тестирования процедурного приложения на выборке из 10.000 точек:\n";
+	Testing::DisplayTestTableProceduralApplication(1e4, 10);
 
 	system("pause");
 	return 0;
