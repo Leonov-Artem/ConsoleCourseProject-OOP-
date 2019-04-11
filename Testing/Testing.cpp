@@ -3,10 +3,16 @@
 #include "Figure2.h"
 #include "table_printer.h"
 #include <ctime>
+#include <string>
 
 using namespace System;
+using std::string;
+
 using namespace bprinter;
 TablePrinter tablePrinter(&std::cout);
+
+double size[4]{ 1e3, 1e4, 1e5, 1e6 };
+string strSize[4]{ "1.000", "10.000", "100.000", "1.000.000" };
 
 // clock() - замеряет время в миллисекундах
 
@@ -112,4 +118,23 @@ void Testing::DisplayTestTableObjectOrientedApplication(double sample_size, int 
 	}
 
 	DisplayTableFooter(average_time / amount_tests / 1000.0);
+}
+
+void Testing::DisplayAverageResultsProceduralApplication()
+{
+	tablePrinter.AddColumn("Кол-во точек", 13);
+	tablePrinter.AddColumn("Ср. время (с.)", 15);
+	tablePrinter.PrintHeader();
+
+	for (int i = 0; i < 4; i++)
+		tablePrinter << strSize[i] << ProceduralApplication(size[i], 10);
+}
+void Testing::DisplayAverageResultsObjectOrientedApplication()
+{
+	tablePrinter.AddColumn("Кол-во точек", 13);
+	tablePrinter.AddColumn("Ср. время (с.)", 15);
+	tablePrinter.PrintHeader();
+
+	for (int i = 0; i < 4; i++)
+		tablePrinter << strSize[i] << ObjectOrientedApplication(size[i], 10);
 }
