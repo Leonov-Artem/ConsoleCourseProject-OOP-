@@ -1,9 +1,10 @@
 #pragma once
 #include "Point.h"
+#include "IFigure.h"
 
 namespace ObjectOrientedProject
 {
-	class Rectangle
+	class Rectangle : public IFigure
 	{
 	private:
 		PointD A, B, C, D;

@@ -68,5 +68,8 @@
     <ClInclude Include="Vector.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="IFigure.h">
+      <Filter>Файлы заголовков\Figures</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

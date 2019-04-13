@@ -1,9 +1,10 @@
 #pragma once
 #include "Point.h"
+#include "IFigure.h"
 
 namespace ObjectOrientedProject
 {
-	class Semicircle
+	class Semicircle : public IFigure
 	{
 	private:
 		PointD d, m, e, centre;

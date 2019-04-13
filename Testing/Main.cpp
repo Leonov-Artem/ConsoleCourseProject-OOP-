@@ -12,7 +12,7 @@ int main()
 	//cout << "Таблица тестирования объектно-ориентированного приложения на выборке из 10.000 точек:\n";
 	//Testing::DisplayTestTableObjectOrientedApplication(1e4, 10);
 
-	Testing::DisplayAverageResultsProceduralApplication();
+	Testing::DisplayAverageResultsObjectOrientedApplication();
 
 	system("pause");
 	return 0;
