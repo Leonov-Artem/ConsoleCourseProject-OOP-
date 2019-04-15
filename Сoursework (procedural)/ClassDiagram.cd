@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Struct Name="ProceduralProject::Figure">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAGAwAAAAAAAAA=</HashCode>
+      <FileName>Figure2.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ProceduralProject::Rectangle">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAApQEAAAA=</HashCode>
+      <FileName>Rectangle2.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ProceduralProject::Semicircle">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAIAAAAAAAAAAAAAAAAAAAAAAAAAAAGAgAAAQAAAAA=</HashCode>
+      <FileName>Semicircle2.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ProceduralProject::Triangle">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAQAAAAAAAAAAAAAAAAGAQAAAQAAAAA=</HashCode>
+      <FileName>Triangle2.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ProceduralProject::PointD">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Point2.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ProceduralProject::Vector">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAEAAAAAgABgAAAAAAA=</HashCode>
+      <FileName>Vector2.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

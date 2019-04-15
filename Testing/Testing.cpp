@@ -16,7 +16,7 @@ string strSize[4]{ "1.000", "10.000", "100.000", "1.000.000" };
 
 // clock() - замеряет время в миллисекундах
 
-void Testing::ExecuteProceduralCode(double sample_size, int amount_tests)
+void Testing::ExecuteProceduralCode(double sample_size)
 {
 	using namespace ProceduralProject;
 	PointD b{ -12, 0 };
@@ -28,7 +28,7 @@ void Testing::ExecuteProceduralCode(double sample_size, int amount_tests)
 	double exact_area = figure.ExactAreaValue;
 	double monte_carclo = СalculateMonteCarlo(figure, sample_size);
 }
-void Testing::ExecuteObjectOrientedCode(double sample_size, int amount_tests)
+void Testing::ExecuteObjectOrientedCode(double sample_size)
 {
 	using namespace ObjectOrientedProject;
 	PointD b(-12, 0), d(-6, 2);
@@ -45,7 +45,7 @@ double Testing::ProceduralApplication(double sample_size, int amount_tests)
 	for (int i = 0; i < amount_tests; i++)
 	{
 		unsigned int start_time = clock();
-		ExecuteProceduralCode(sample_size, amount_tests);
+		ExecuteProceduralCode(sample_size);
 		unsigned int end_time = clock();
 
 		average_time += end_time - start_time;
@@ -60,7 +60,7 @@ double Testing::ObjectOrientedApplication(double sample_size, int amount_tests)
 	for (int i = 0; i < amount_tests; i++)
 	{
 		unsigned int start_time = clock();
-		ExecuteObjectOrientedCode(sample_size, amount_tests);
+		ExecuteObjectOrientedCode(sample_size);
 		unsigned int end_time = clock();
 
 		average_time += end_time - start_time;
@@ -93,7 +93,7 @@ void Testing::DisplayTestTableProceduralApplication(double sample_size, int amou
 	for (int i = 0; i < amount_tests; i++)
 	{
 		unsigned int start_time = clock();
-		ExecuteProceduralCode(sample_size, amount_tests);
+		ExecuteProceduralCode(sample_size);
 		unsigned int end_time = clock();
 		average_time += end_time - start_time;
 		
@@ -110,7 +110,7 @@ void Testing::DisplayTestTableObjectOrientedApplication(double sample_size, int 
 	for (int i = 0; i < amount_tests; i++)
 	{
 		unsigned int start_time = clock();
-		ExecuteObjectOrientedCode(sample_size, amount_tests);
+		ExecuteObjectOrientedCode(sample_size);
 		unsigned int end_time = clock();
 		average_time += end_time - start_time;
 

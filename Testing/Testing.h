@@ -3,8 +3,8 @@
 class Testing
 {
 private:
-	static void ExecuteProceduralCode(double sample_size, int amount_tests);
-	static void ExecuteObjectOrientedCode(double sample_size, int amount_tests);
+	static void ExecuteProceduralCode(double sample_size);
+	static void ExecuteObjectOrientedCode(double sample_size);
 
 	static void DisplayTableHeader();
 	static void DisplayTableRow(int row, double value);

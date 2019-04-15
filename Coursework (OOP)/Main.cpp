@@ -23,7 +23,7 @@ int main()
 	Figure figure(b, d);
 
 	double ExactAreaValue = figure.ExactAreaValue();
-	double monteCarlo = figure.MonteCarloAlgorithm(1e4);
+	double monteCarlo = figure.MonteCarloAlgorithm(1e6);
 
 	cout << "Точное значение площади: " <<ExactAreaValue << endl;
 	cout << "Монте-Карло : " <<monteCarlo << endl;
