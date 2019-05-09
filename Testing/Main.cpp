@@ -12,9 +12,11 @@ int main()
 	//cout << "Таблица тестирования объектно-ориентированного приложения на выборке из 10.000 точек:\n";
 	//Testing::DisplayTestTableObjectOrientedApplication(1e6, 10);
 
-	cout << "ООП:" << endl;
-	Testing::DisplayAverageResultsObjectOrientedApplication();
-	cout << endl;
+	double d = Testing::RelativeErrorProceduralApplications(10000);
+	cout << d << endl;
+	//cout << "ООП:" << endl;
+	//Testing::DisplayAverageResultsObjectOrientedApplication();
+	//cout << endl;
 
 	//cout << "Процедурное:" << endl;
 	//Testing::DisplayAverageResultsProceduralApplication();
