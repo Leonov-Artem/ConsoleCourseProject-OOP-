@@ -3,6 +3,11 @@
 class Testing
 {
 private:
+	static double RelativeError(double exact_value, double approximation)
+	{
+		return abs(exact_value - approximation) / exact_value * 100;
+	}
+
 	static void ExecuteProceduralCode(double sample_size);
 	static void ExecuteObjectOrientedCode(double sample_size);
 

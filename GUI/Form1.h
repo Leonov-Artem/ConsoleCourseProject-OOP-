@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include "Figure2.h"
 #include "Figure.h"
+#include "Testing.h"
+#include "TestingForm.h"
 
 namespace CppCLR_Winforms
 {
@@ -76,6 +78,7 @@ namespace CppCLR_Winforms
 	private: System::Windows::Forms::Label^  label45;
 	private: System::Windows::Forms::TextBox^  textBox_PointE_x;
 	private: System::Windows::Forms::TextBox^  textBox_PointE_y;
+	private: System::Windows::Forms::Button^  button_testing;
 
 
 
@@ -122,6 +125,7 @@ namespace CppCLR_Winforms
 			this->label45 = (gcnew System::Windows::Forms::Label());
 			this->textBox_PointE_x = (gcnew System::Windows::Forms::TextBox());
 			this->textBox_PointE_y = (gcnew System::Windows::Forms::TextBox());
+			this->button_testing = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -272,11 +276,11 @@ namespace CppCLR_Winforms
 			// 
 			// button_Сalculate
 			// 
-			this->button_Сalculate->Location = System::Drawing::Point(21, 306);
+			this->button_Сalculate->Location = System::Drawing::Point(19, 306);
 			this->button_Сalculate->Name = L"button_Сalculate";
-			this->button_Сalculate->Size = System::Drawing::Size(102, 44);
+			this->button_Сalculate->Size = System::Drawing::Size(126, 44);
 			this->button_Сalculate->TabIndex = 16;
-			this->button_Сalculate->Text = L"Выполнить";
+			this->button_Сalculate->Text = L"Вычислить";
 			this->button_Сalculate->UseVisualStyleBackColor = true;
 			this->button_Сalculate->Click += gcnew System::EventHandler(this, &Form1::button_Сalculate_Click);
 			// 
@@ -375,6 +379,16 @@ namespace CppCLR_Winforms
 			this->textBox_PointE_y->TabIndex = 33;
 			this->textBox_PointE_y->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::textBox_PointE_y_KeyPress);
 			// 
+			// button_testing
+			// 
+			this->button_testing->Location = System::Drawing::Point(154, 306);
+			this->button_testing->Name = L"button_testing";
+			this->button_testing->Size = System::Drawing::Size(126, 44);
+			this->button_testing->TabIndex = 34;
+			this->button_testing->Text = L"Тестирование";
+			this->button_testing->UseVisualStyleBackColor = true;
+			this->button_testing->Click += gcnew System::EventHandler(this, &Form1::button_testing_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -382,6 +396,7 @@ namespace CppCLR_Winforms
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(820, 446);
+			this->Controls->Add(this->button_testing);
 			this->Controls->Add(this->textBox_PointE_y);
 			this->Controls->Add(this->textBox_PointE_x);
 			this->Controls->Add(this->label45);
@@ -519,6 +534,12 @@ namespace CppCLR_Winforms
 			ExecuteObjectOrientedCode(b, d, amount_points);
 		}
 	}
+	private: System::Void button_testing_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		GUI::TestingForm f;
+		f.ShowDialog();
+	}
+
 	private: System::Void radioButton2_CheckedChanged(System::Object^  sender, System::EventArgs^  e) 
 	{
 		if ( (textBox_PointB_x->Text != "" && textBox_PointB_y->Text != "" && textBox_PointD_x->Text != "" && textBox_PointD_y->Text != "") 
@@ -527,6 +548,7 @@ namespace CppCLR_Winforms
 			)
 			button_Сalculate->Enabled = true;
 	}
+
 	private: System::Void textBox_PointE_y_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e)
 	{
 		char number = e->KeyChar;

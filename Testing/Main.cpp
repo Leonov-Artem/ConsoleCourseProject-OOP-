@@ -10,9 +10,14 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	//cout << "Таблица тестирования объектно-ориентированного приложения на выборке из 10.000 точек:\n";
-	Testing::DisplayTestTableObjectOrientedApplication(1e6, 10);
+	//Testing::DisplayTestTableObjectOrientedApplication(1e6, 10);
 
-	//Testing::DisplayAverageResultsObjectOrientedApplication();
+	cout << "ООП:" << endl;
+	Testing::DisplayAverageResultsObjectOrientedApplication();
+	cout << endl;
+
+	//cout << "Процедурное:" << endl;
+	//Testing::DisplayAverageResultsProceduralApplication();
 
 	system("pause");
 	return 0;
