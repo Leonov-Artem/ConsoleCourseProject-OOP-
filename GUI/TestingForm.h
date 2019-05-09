@@ -1,7 +1,9 @@
 #pragma once
+#include <ctime>
 
 namespace GUI {
-
+	using namespace ProceduralProject;
+	using namespace ObjectOrientedProject;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -63,10 +65,10 @@ namespace GUI {
 		void InitializeComponent(void)
 		{
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -85,16 +87,6 @@ namespace GUI {
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(546, 196);
 			this->dataGridView1->TabIndex = 0;
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(170, 249);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(207, 84);
-			this->button1->TabIndex = 1;
-			this->button1->Text = L"Íà÷àòü òåñòèðîâàíèå";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &TestingForm::button1_Click);
 			// 
 			// Column1
 			// 
@@ -116,6 +108,16 @@ namespace GUI {
 			this->Column3->ReadOnly = true;
 			this->Column3->Width = 140;
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(170, 249);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(207, 84);
+			this->button1->TabIndex = 1;
+			this->button1->Text = L"Íà÷àòü òåñòèðîâàíèå";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &TestingForm::button1_Click);
+			// 
 			// TestingForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -124,17 +126,70 @@ namespace GUI {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dataGridView1);
 			this->Name = L"TestingForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"TestingForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: void ExecuteProceduralCode(double sample_size)
+		{
+			ProceduralProject::PointD b{ -12, 0 };
+			ProceduralProject::PointD d{ -6, 2 };
+
+			ProceduralProject::Figure figure;
+			figure = CreateFigure(b, d);
+
+			double exact_area = figure.ExactAreaValue;
+			double monte_carclo = ÑalculateMonteCarlo(figure, sample_size);
+		}
+	private: void ExecuteObjectOrientedCode(double sample_size)
+		{
+			ObjectOrientedProject::PointD b(-12, 0), d(-6, 2);
+			ObjectOrientedProject::Figure figure(b, d);
+
+			double ExactAreaValue = figure.ExactAreaValue();
+			double monteCarlo = figure.MonteCarloAlgorithm(sample_size);
+		}
+	private: double ProceduralApplication(double sample_size, int amount_tests)
+		{
+			unsigned int average_time = 0;
+
+			for (int i = 0; i < amount_tests; i++)
+			{
+				unsigned int start_time = clock();
+				ExecuteProceduralCode(sample_size);
+				unsigned int end_time = clock();
+
+				average_time += end_time - start_time;
+			}
+
+			return average_time / amount_tests / 1000.0;
+		}
+	private: double ObjectOrientedApplication(double sample_size, int amount_tests)
+		{
+			unsigned int average_time = 0;
+
+			for (int i = 0; i < amount_tests; i++)
+			{
+				unsigned int start_time = clock();
+				ExecuteObjectOrientedCode(sample_size);
+				unsigned int end_time = clock();
+
+				average_time += end_time - start_time;
+			}
+
+			return average_time / amount_tests / 1000.0;
+		}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
-	
-		//dataGridView1.Rows[Pawn.X - 1].Cells[Pawn.Y - 1].Value = "Ï";
-		//dataGridView1.Rows[Horse.X - 1].Cells[Horse.Y - 1].Value = "K";
+		double size[4]{ 1e3, 1e4, 1e5, 1e6 };
+		for (int i = 0; i < 4; i++)
+		{
+			dataGridView1->Rows[i]->Cells[1]->Value = ObjectOrientedApplication(size[i], 5);
+			dataGridView1->Rows[i]->Cells[2]->Value = ProceduralApplication(size[i], 5);
+		}
 	}
 	};
 }

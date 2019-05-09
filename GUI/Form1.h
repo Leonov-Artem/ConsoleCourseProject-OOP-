@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "Figure2.h"
 #include "Figure.h"
-#include "Testing.h"
 #include "TestingForm.h"
 
 namespace CppCLR_Winforms
@@ -436,7 +435,7 @@ namespace CppCLR_Winforms
 		}
 #pragma endregion
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-	private: double RelativeError(double exact_value, double approximation)
+	public: double RelativeError(double exact_value, double approximation)
 	{
 		return abs(exact_value - approximation) / exact_value * 100;
 	}
@@ -488,7 +487,7 @@ namespace CppCLR_Winforms
 		label_monte_carlo->Text = "Монте-Карло: " + monte_carclo.ToString();
 		label_relative_error->Text = "Относительная погрешность: " + Math::Round(RelativeError(exact_area, monte_carclo), 4).ToString() + "%";
 	}
-	private: void ExecuteProceduralCode(ProceduralProject::PointD b, ProceduralProject::PointD d, double amount_points)
+	public: void ExecuteProceduralCode(ProceduralProject::PointD b, ProceduralProject::PointD d, double amount_points)
 	{
 		ProceduralProject::Figure figure;
 		figure = CreateFigure(b, d);
